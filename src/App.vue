@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <IconBar />
     <div class="card-started">
       <div class="block-photo"><img class="image" alt="Iam" src="/img/iam.jpg"></div>
       <div  class="name">{{name}}</div>
@@ -9,17 +9,17 @@
     <div class="social">
         <span>
           <a class="contact-icon" href="tel:+79874991540">
-            <i class="fas fa-circle-o fa-phone"></i>
+            <img class="icon" src="/icon/phone_icon.png">
           </a>
         </span>
       <span>
           <a class="contact-icon" href="https://wa.me/79874991540">
-            <i class="fab fa-whatsapp"></i>
+            <img class="icon" src="/icon/whatsapp_icon.png">
           </a>
         </span>
       <span>
           <a class="contact-icon" href="https://gmail.com">
-            <i class="fas fa-envelope"></i>
+            <img class="icon" src="/icon/mail_icon.png">
           </a>
         </span>
 
@@ -29,18 +29,19 @@
         <div class="link">контакты</div>
       </div>
     <aboutMe />
-
     </div>
   </div>
 </template>
 
 <script>
 import AboutMe from './components/AboutMe.vue'
+import IconBar from './components/IconBar.vue'
 
 export default {
   name: 'App',
   components: {
     AboutMe,
+    IconBar
   },
   data: () => ({
     name: 'альбина кашапова',
@@ -78,6 +79,7 @@ body, html {
     position: relative;
     height: 80%;
     width: 500px;
+    border-radius: 4px;
     box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
     box-shadow: -15px -15px 2px rgb(255 255 255 / 10%);
     //overflow: hidden;
@@ -116,17 +118,19 @@ body, html {
   }
 
   .contact-icon {
-    font-size: 1rem;
     cursor: pointer;
     color: black;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     margin-right: 1rem;
-
     &:hover {
       color: $green;
     }
+  }
+
+  .icon {
+    width: 25px;
   }
 
   .links {
