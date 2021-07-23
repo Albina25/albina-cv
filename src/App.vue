@@ -2,7 +2,7 @@
   <div id="app">
     <IconBar />
     <div class="card-started">
-      <div class="block-photo"><img class="image" alt="Iam" src="/img/iam.jpg"></div>
+      <div class="block-photo"><img class="image" alt="Iam" src="/img/1.jpg"></div>
       <div  class="name">{{name}}</div>
       <div class="speciality">{{speciality}}</div>
 
@@ -24,35 +24,65 @@
         </span>
 
     </div>
+      <div class="links-position">
       <div class="links">
         <div class="link">скачать резюме</div>
         <div class="link">контакты</div>
       </div>
-    <aboutMe />
+      </div>
     </div>
+    <aboutMe v-show="active" :class="animated = isVisible" @click="showBlock"/>
+    <ExperienceEducation class="active"/>
   </div>
 </template>
 
 <script>
 import AboutMe from './components/AboutMe.vue'
 import IconBar from './components/IconBar.vue'
+import ExperienceEducation from './components/ExperienceEducation.vue'
 
 export default {
   name: 'App',
   components: {
     AboutMe,
-    IconBar
+    IconBar,
+    ExperienceEducation
   },
   data: () => ({
     name: 'альбина кашапова',
     speciality: 'frontend developer',
-  })
+    isVisible: false,
+  }),
+  methods: {
+    showBlock() {
+      this.isVisible = true;
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 $green: #299a60;
 
+.animated {
+  animation-duration: 2s;
+  animation-name: fadeInLeft
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-70%, 0, 0)
+  }
+  100% {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
 body, html {
   height: 100%;
   background-color: $green;
@@ -80,14 +110,23 @@ body, html {
     height: 80%;
     width: 500px;
     border-radius: 4px;
-    box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
     box-shadow: -15px -15px 2px rgb(255 255 255 / 10%);
-    //overflow: hidden;
     z-index: 10;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
+    }
   }
 
   .block-photo {
-    width: 100%;
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 1rem;
     overflow: hidden;
   }
@@ -108,7 +147,6 @@ body, html {
     text-transform: capitalize;
     margin-bottom: 1.5rem;
     font-weight: bold;
-
   }
 
   .social {
@@ -132,7 +170,11 @@ body, html {
   .icon {
     width: 25px;
   }
-
+  .links-position {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
   .links {
     position: relative;
     bottom: 0;
@@ -141,7 +183,6 @@ body, html {
     display: flex;
     flex-flow: row wrap;
     text-transform: uppercase;
-    //border-top: 1px solid gray;
     align-items: center;
 
     &:before {
@@ -160,7 +201,6 @@ body, html {
       top: 0;
       width: 100%;
       height: 1px;
-      //width: 100%;
       background: linear-gradient(to left, white, dimgray, white);
     }
   }

@@ -1,32 +1,135 @@
 <template>
   <div class="about-me">
-
+    <span class="title">{{title}}</span>
+    <div class="content">
+      <ul class="details">
+        <li class="detail" v-for="detail of details" :key="detail.title">
+          <span class="field-title">{{detail.title}}</span>
+          <span class="field-content">{{detail.content}}</span>
+        </li>
+      </ul>
+      <div class="text">
+        <p>Привет! Меня зовут Альбина.<br>
+          Я начинающий web-разработчик.<br>
+          Ищу дружную команду для разработки сайтов.
+          Программирование - это бег с перпятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AboutMe',
-  props: {
-    msg: String
-  }
+  name: "AboutMe",
+  data: () => ({
+    title: 'обо мне',
+    details: [
+      {title: 'Имя', content: 'Альбина Кашапова'},
+      {title: 'Email', content: 'axioma.25@gmail.com'},
+      {title: 'Телефон', content: '8-987-499-15-40'},
+    ],
+  })
 }
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+<style lang="scss">
+$main_color: #cd9547;
+$gray_color: #ece9e9;
+$green: #299a60;
+
+.title {
+  text-transform: uppercase;
+  display: flex;
+  text-align: left;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 2rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    //top: 4rem;
+    left: -30px;
+    right:0;
+    bottom:0;
+    width: 100%;
+    height: 1px;
+    background: radial-gradient(ellipse at left,dimgray,#fff 80%);
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.about-me {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  width: 50%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+
+  .triangle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: #ece9e9;
+    transform: translateX(50%) translateY(50%) rotate(-45deg);
+  }
+
+  .photo {
+    width: 500px;
+  }
+
+  .field-title {
+    background: $green;
+    color: white;
+    //border: 2px solid $green;
+    border-radius: 3px;
+    padding: 0.2rem 0.3rem;
+  }
+  .content {
+    padding: 0 4rem;
+  }
+
+  .details {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .detail {
+    position: relative;
+    padding: 1rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to left, white, #ddd, white);
+    }
+  }
+
+  .text {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    height: 70%;
+    flex-grow: 1;
+    line-height: 2rem;
+  }
 }
 </style>
