@@ -1,6 +1,7 @@
 <template>
   <div class="about-me">
     <span class="title">{{title}}</span>
+    <div class="triangle"></div>
     <div class="content">
       <ul class="details">
         <li class="detail" v-for="detail of details" :key="detail.title">
@@ -35,9 +36,6 @@ export default {
 </script>
 
 <style lang="scss">
-$main_color: #cd9547;
-$gray_color: #ece9e9;
-$green: #299a60;
 
 .title {
   text-transform: uppercase;
@@ -91,9 +89,9 @@ $green: #299a60;
   }
 
   .field-title {
-    background: $green;
+    background: var(--green);
     color: white;
-    //border: 2px solid $green;
+    //border: 2px solid var(--green;
     border-radius: 3px;
     padding: 0.2rem 0.3rem;
   }

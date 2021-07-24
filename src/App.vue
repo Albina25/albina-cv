@@ -33,7 +33,8 @@
     </div>
     <aboutMe v-show="active" :class="animated = isVisible" @click="showBlock"/>
     <ExperienceEducation v-show="active"/>
-    <Skills class="active"/>
+    <Skills v-show="active" />
+    <Win class="active"/>
   </div>
 </template>
 
@@ -42,6 +43,7 @@ import AboutMe from './components/AboutMe.vue'
 import IconBar from './components/IconBar.vue'
 import ExperienceEducation from './components/ExperienceEducation.vue'
 import Skills from './components/Skills.vue'
+import Win from './components/Win.vue'
 
 export default {
   name: 'App',
@@ -49,7 +51,8 @@ export default {
     AboutMe,
     IconBar,
     ExperienceEducation,
-    Skills
+    Skills,
+    Win
   },
   data: () => ({
     name: 'альбина кашапова',
@@ -96,6 +99,19 @@ body, html {
   height: 100%;
   background-color: var(--green);
 }
+
+.triangle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 50%;
+  bottom: top;
+  left: 0;
+  overflow: hidden;
+  background-color: var(--green);
+  transform: translateX(50%) translateY(50%) rotate(-55deg);
+}
+
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -119,7 +135,6 @@ body, html {
     width: 500px;
     border-radius: 4px;
     box-shadow: -4px -10px 10px 12px rgb(0 0 0 / 10%);
-    //box-shadow: -15px -15px 2px rgb(255 255 255 / 10%);
     z-index: 10;
   }
 
@@ -161,8 +176,9 @@ body, html {
     align-items: center;
     text-decoration: none;
     margin-right: 1rem;
+
     &:hover {
-      color: var(--green);
+      fill: var(--green);
     }
   }
 
@@ -192,7 +208,7 @@ body, html {
       left: 50%;
       width: 1px;
       height: 100%;
-      background: linear-gradient(dimgray, white);
+      background: linear-gradient(var(--gray), white);
     }
 
     &:after {
@@ -201,7 +217,7 @@ body, html {
       top: 0;
       width: 100%;
       height: 1px;
-      background: linear-gradient(to left, white, dimgray, white);
+      background: linear-gradient(to left, white, var(--gray), white);
     }
   }
 
