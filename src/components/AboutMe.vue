@@ -12,7 +12,7 @@
       <div class="text">
         <p>Привет! Меня зовут Альбина.<br>
           Я начинающий web-разработчик.<br>
-          Ищу дружную команду для разработки сайтов.
+          Ищу дружную команду для разработки сайтов.<br>
           Программирование - это бег с перпятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
         </p>
       </div>
@@ -49,7 +49,6 @@ export default {
   &:before {
     content: '';
     position: absolute;
-    //top: 4rem;
     left: -30px;
     right:0;
     bottom:0;
@@ -72,17 +71,6 @@ export default {
   height: 70%;
   display: flex;
   flex-direction: column;
-
-  .triangle {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    background-color: #ece9e9;
-    transform: translateX(50%) translateY(50%) rotate(-45deg);
-  }
 
   .photo {
     width: 500px;

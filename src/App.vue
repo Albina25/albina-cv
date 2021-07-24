@@ -31,10 +31,10 @@
       </div>
       </div>
     </div>
-    <aboutMe v-show="active" :class="animated = isVisible" @click="showBlock"/>
+    <aboutMe class="active" :class="animated = isVisible" @click="showBlock"/>
     <ExperienceEducation v-show="active"/>
     <Skills v-show="active" />
-    <Win class="active"/>
+    <Win v-show="active"/>
   </div>
 </template>
 
