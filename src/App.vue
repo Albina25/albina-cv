@@ -2,7 +2,9 @@
   <div id="app">
     <IconBar />
     <div class="card-started">
-      <div class="block-photo"><img class="image" alt="Iam" src="/img/1.jpg"></div>
+      <div class="block-photo">
+        <img class="image" alt="Iam" src="/img/1.jpg">
+      </div>
       <div  class="name">{{name}}</div>
       <div class="speciality">{{speciality}}</div>
 
@@ -31,10 +33,11 @@
       </div>
       </div>
     </div>
-    <aboutMe class="active" :class="animated = isVisible" @click="showBlock"/>
-    <ExperienceEducation v-show="active"/>
-    <Skills v-show="active" />
-    <Win v-show="active"/>
+<!--    <AboutMe id="aboutMe" class="active" :class="animated = isVisible" @click="showBlock(id)"/>-->
+<!--    <ExperienceEducation id="experienceEducation" v-show="active" @click="showBlock(id)"/>-->
+<!--    <Skills id="skills" v-show="active" @click="showBlock(id)"/>-->
+<!--    <Win id="win" v-show="active" @click="showBlock(id)"/>-->
+    <component :is="currentComponent"></component>
   </div>
 </template>
 
@@ -54,16 +57,22 @@ export default {
     Skills,
     Win
   },
+  props: {
+    currentBlock: String,
+  },
+
   data: () => ({
     name: 'альбина кашапова',
     speciality: 'frontend developer',
-    isVisible: false,
+    currentBlock1: currentBlock,
+    blocks: ["AboutMe", "IconBar", "ExperienceEducation", "Skills", "Win"],
   }),
-  methods: {
-    showBlock() {
-      this.isVisible = true;
+  computed: {
+    currentComponent() {
+      return this.currentBlock1;
     }
   }
+
 }
 </script>
 
@@ -91,10 +100,6 @@ export default {
   }
 }
 
-.active {
-  opacity: 1;
-  visibility: visible;
-}
 body, html {
   height: 100%;
   background-color: var(--green);
@@ -125,6 +130,7 @@ body, html {
   justify-content: center;
   background-color: var(--green);
 
+
   .card-started {
     display: flex;
     flex-direction: column;
@@ -139,10 +145,19 @@ body, html {
   }
 
   .block-photo {
-    display: flex;
-    align-items: flex-start;
+    //display: flex;
+    //align-items: flex-start;
     margin-bottom: 1rem;
     overflow: hidden;
+    background-image: url("/img/1.jpg");
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //width: 100%;
+    //height: auto;
+    //background-repeat: no-repeat;
+    //background-position: center center;
+    //background-size: cover;
   }
 
   .image {
