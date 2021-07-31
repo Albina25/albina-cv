@@ -13,7 +13,7 @@
         <p>Привет! Меня зовут Альбина.<br>
           Я начинающий web-разработчик.<br>
           Ищу дружную команду для разработки сайтов.<br>
-          Программирование - это бег с перпятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
+          Программирование - это бег с препятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
         </p>
       </div>
     </div>
@@ -68,9 +68,23 @@ export default {
   background-color: #fff;
   display: flex;
   width: 50%;
+  max-width: 700px;
   height: 70%;
   display: flex;
   flex-direction: column;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 50%;
+    bottom: top;
+    left: 0;
+    overflow: hidden;
+    background-color: var(--green);
+    transform: translateX(50%) translateY(50%) rotate(-55deg);
+  }
 
   .photo {
     width: 500px;
