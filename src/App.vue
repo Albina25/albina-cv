@@ -1,8 +1,21 @@
 <template>
   <div id="app">
-    <IconBar @set-сurrent-block="changeCurrentBlock" />
+    <div class="icon-bar">
+      <div :class="['icon-block', {'active': currentBlock === 'AboutMe'}]" @click="setCurrentBlock('AboutMe')">
+        <icon-man class="icon-img"></icon-man>обо мне
+      </div>
+      <div :class="['icon-block', {'active': currentBlock === 'Skills'}]" @click="setCurrentBlock('Skills')">
+        <icon-skills class="icon-img"></icon-skills>навыки & знания
+      </div>
+      <div :class="['icon-block', {'active': currentBlock === 'Win'}]" @click="setCurrentBlock('Win')">
+        <icon-win class="icon-img"></icon-win>чем отличилась
+      </div>
+      <div :class="['icon-block', {'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
+        <icon-experience class="icon-img"></icon-experience>опыт & образование
+      </div>
+    </div>
+<!--    <IconBar @set-сurrent-block="changeCurrentBlock" />-->
     <CardStarted />
-<!--      <component  :is="currentBlock" :class="{animated:isVisible==true}"></component>-->
     <AboutMe v-show="currentBlock==='AboutMe'" :class="[{'animated':isVisible}]" />
     <Skills  v-show="currentBlock==='Skills'" :class="[{'animated1':currentBlock===!'Skills','animated':currentBlock==='Skills'}]"/>
     <Win v-show="currentBlock==='Win'" :class="[{'hidden':currentBlock==='Skills','animated':currentBlock==='Win'}]"/>
@@ -13,20 +26,27 @@
 <script>
 import CardStarted from './components/CardStarted.vue'
 import AboutMe from './components/AboutMe.vue'
-import IconBar from './components/IconBar.vue'
 import ExperienceEducation from './components/ExperienceEducation.vue'
 import Skills from './components/Skills.vue'
 import Win from './components/Win.vue'
+import IconMan from "./components/icons/IconMan.vue";
+import IconWin from "./components/icons/IconWin.vue";
+import IconSkills from "./components/icons/IconSkills.vue";
+import IconExperience from "./components/icons/IconExperience.vue";
 
 export default {
   name: 'App',
   components: {
     CardStarted,
     AboutMe,
-    IconBar,
+    // IconBar,
     ExperienceEducation,
     Skills,
     Win,
+    IconMan,
+    IconWin,
+    IconSkills,
+    IconExperience
   },
   data: () => ({
     currentBlock: 'AboutMe',
@@ -34,9 +54,9 @@ export default {
     hidden: true,
   }),
   methods: {
-    changeCurrentBlock(data) {
-      this.currentBlock = data.currentBlock;
-      this.isVisible = data.isVisible;
+    setCurrentBlock(value) {
+      this.currentBlock = value;
+      this.isVisible = true;
       console.log('app', this.isVisible)
     }
   }
@@ -87,6 +107,18 @@ body, html {
   background-color: var(--green);
   position: relative;
 }
+  %cube {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 50%;
+    bottom: top;
+    left: 0;
+    overflow: hidden;
+    background-color: var(--green);
+    transform: translateX(50%) translateY(50%) rotate(-55deg);
+  }
 
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
@@ -98,6 +130,51 @@ body, html {
   display: flex;
   justify-content: center;
   background-color: var(--green);
+  .icon-bar {
+    width: 6rem;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-right: 1rem;
+
+    .icon-block {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 1rem;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: black;
+
+      &:hover {
+        fill: var(--green);
+        color: var(--green);
+      }
+
+      &:nth-last-child(n+2):before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: radial-gradient(ellipse at right,var(--lightgray),#fff 80%);
+      }
+
+      .icon-img {
+        padding: 16px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .active {
+      fill: var(--green);
+      color: var(--green);
+    }
+  }
 
   .hidden {
     opacity: 0;

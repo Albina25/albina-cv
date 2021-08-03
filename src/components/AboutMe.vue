@@ -1,6 +1,6 @@
 <template>
   <div class="about-me">
-    <span class="title">{{title}}</span>
+    <span class="title">обо мне</span>
     <div class="triangle"></div>
     <div class="content">
       <ul class="details">
@@ -24,7 +24,6 @@
 export default {
   name: "AboutMe",
   data: () => ({
-    title: 'обо мне',
     details: [
       {title: 'Имя', content: 'Альбина Кашапова'},
       {title: 'Email', content: 'axioma.25@gmail.com'},
@@ -59,8 +58,6 @@ export default {
 }
 .about-me {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   overflow: hidden;
@@ -70,10 +67,10 @@ export default {
   width: 50%;
   max-width: 700px;
   height: 70%;
-  display: flex;
   flex-direction: column;
 
   &:after {
+    //@extend %cube;
     content: '';
     position: absolute;
     width: 40px;

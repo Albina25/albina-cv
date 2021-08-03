@@ -1,12 +1,9 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg"
-       :width="width"
-       :height="height"
-       viewBox="0 0 18 18"
-       :aria-labelledby="iconName"
-       role="presentation"
+       :width="size"
+       :height="size"
+       :viewBox="viewBox"
   >
-    <title :id="iconName" lang="en">{{iconName}} icon</title>
     <g :fill="iconColor">
       <slot />
     </g>
@@ -16,30 +13,28 @@
 <script>
 export default {
   props: {
-    iconName: {
-      type: String,
-      default: 'box'
-    },
-    width: {
+    size: {
       type: [Number, String],
-      default: 18
+      default: 48
     },
-    height: {
+    box: {
       type: [Number, String],
-      default: 18
-    },
-    iconColor: {
-      type: String,
-      default: 'currentColor'
+      default: 48
+    }
+  },
+  computed: {
+    viewBox() {
+      return `0 0 ${this.box} ${this.box}`
     }
   }
 }
+
 </script>
 
 <style scoped>
 svg {
-  display: inline-block;
-  vertical-align: baseline;
-  margin-bottom: -2px; /* yes, I'm that particular about formatting */
+  /*display: inline-block;*/
+  /*vertical-align: baseline;*/
+  /*margin-bottom: -2px; !* yes, I'm that particular about formatting *!*/
 }
 </style>>
