@@ -14,7 +14,7 @@
         <icon-experience class="icon-img"></icon-experience>опыт & образование
       </div>
     </div>
-    <CardStarted />
+    <card-started></card-started>
     <about-me v-show="currentBlock === 'AboutMe'" :class="[{'animated':isVisible}]"></about-me>
     <skills  v-show="currentBlock === 'Skills'" :class="[{'animated1':currentBlock===!'Skills','animated':currentBlock==='Skills'}]"></skills>
     <win v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock==='Skills','animated':currentBlock==='Win'}]"></win>
