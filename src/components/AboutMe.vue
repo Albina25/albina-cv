@@ -56,6 +56,18 @@ export default {
     background: radial-gradient(ellipse at left,dimgray,#fff 80%);
   }
 }
+%cube {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 50%;
+  //bottom: top;
+  left: 0;
+  overflow: hidden;
+  background-color: var(--green);
+  transform: translateX(50%) translateY(50%) rotate(-55deg);
+}
 .about-me {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
@@ -70,17 +82,17 @@ export default {
   flex-direction: column;
 
   &:after {
-    //@extend %cube;
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    opacity: 50%;
-    bottom: top;
-    left: 0;
-    overflow: hidden;
-    background-color: var(--green);
-    transform: translateX(50%) translateY(50%) rotate(-55deg);
+    @extend %cube;
+    //content: '';
+    //position: absolute;
+    //width: 40px;
+    //height: 40px;
+    //opacity: 50%;
+    //bottom: top;
+    //left: 0;
+    //overflow: hidden;
+    //background-color: var(--green);
+    //transform: translateX(50%) translateY(50%) rotate(-55deg);
   }
 
   .photo {

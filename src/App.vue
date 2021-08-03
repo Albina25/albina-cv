@@ -5,7 +5,7 @@
         <icon-man class="icon-img"></icon-man>обо мне
       </div>
       <div :class="['icon-block', {'active': currentBlock === 'Skills'}]" @click="setCurrentBlock('Skills')">
-        <icon-skills class="icon-img"></icon-skills>навыки & знания
+        <icon-skills class="icon-img">навыки & знания</icon-skills>
       </div>
       <div :class="['icon-block', {'active': currentBlock === 'Win'}]" @click="setCurrentBlock('Win')">
         <icon-win class="icon-img"></icon-win>чем отличилась
@@ -14,12 +14,11 @@
         <icon-experience class="icon-img"></icon-experience>опыт & образование
       </div>
     </div>
-<!--    <IconBar @set-сurrent-block="changeCurrentBlock" />-->
     <CardStarted />
-    <AboutMe v-show="currentBlock==='AboutMe'" :class="[{'animated':isVisible}]" />
-    <Skills  v-show="currentBlock==='Skills'" :class="[{'animated1':currentBlock===!'Skills','animated':currentBlock==='Skills'}]"/>
-    <Win v-show="currentBlock==='Win'" :class="[{'hidden':currentBlock==='Skills','animated':currentBlock==='Win'}]"/>
-    <ExperienceEducation v-show="currentBlock==='ExperienceEducation'" :class="[{'animated1':currentBlock===!'ExperienceEducation', 'animated':currentBlock==='ExperienceEducation'}]" />
+    <about-me v-show="currentBlock === 'AboutMe'" :class="[{'animated':isVisible}]"></about-me>
+    <skills  v-show="currentBlock === 'Skills'" :class="[{'animated1':currentBlock===!'Skills','animated':currentBlock==='Skills'}]"></skills>
+    <win v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock==='Skills','animated':currentBlock==='Win'}]"></win>
+    <experience-education v-show="currentBlock==='ExperienceEducation'" :class="[{'animated1':currentBlock===!'ExperienceEducation', 'animated': currentBlock==='ExperienceEducation'}]"></experience-education>
   </div>
 </template>
 
@@ -39,7 +38,6 @@ export default {
   components: {
     CardStarted,
     AboutMe,
-    // IconBar,
     ExperienceEducation,
     Skills,
     Win,
@@ -57,7 +55,6 @@ export default {
     setCurrentBlock(value) {
       this.currentBlock = value;
       this.isVisible = true;
-      console.log('app', this.isVisible)
     }
   }
 }
@@ -70,6 +67,12 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: var(--green);
+  position: relative;
 }
 
 .animated {
@@ -102,18 +105,13 @@ export default {
   }
 }
 
-body, html {
-  height: 100%;
-  background-color: var(--green);
-  position: relative;
-}
+
   %cube {
     content: '';
     position: absolute;
     width: 40px;
     height: 40px;
     opacity: 50%;
-    bottom: top;
     left: 0;
     overflow: hidden;
     background-color: var(--green);

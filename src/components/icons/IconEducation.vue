@@ -12,7 +12,7 @@ export default {
   props: {
     size: {
       type: [Number, String],
-      default: 48
+      default: 32
     },
     box: {
       type: [Number, String],
