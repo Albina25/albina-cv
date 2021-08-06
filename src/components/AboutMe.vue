@@ -1,20 +1,22 @@
 <template>
-  <div class="about-me">
-    <span class="title">обо мне</span>
-    <div class="triangle"></div>
-    <div class="content">
-      <ul class="details">
-        <li class="detail" v-for="detail of details" :key="detail.title">
-          <span class="field-title">{{detail.title}}</span>
-          <span class="field-content">{{detail.content}}</span>
-        </li>
-      </ul>
-      <div class="text">
-        <p>Привет! Меня зовут Альбина.<br>
-          Я начинающий web-разработчик.<br>
-          Ищу дружную команду для разработки сайтов.<br>
-          Программирование - это бег с препятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
-        </p>
+  <div class="information-block">
+    <div class="about-me">
+      <span class="title">обо мне</span>
+<!--      <div class="triangle"></div>-->
+      <div class="content">
+        <ul class="details">
+          <li class="detail" v-for="detail of details" :key="detail.title">
+            <span class="field-title">{{detail.title}}</span>
+            <span class="field-content">{{detail.content}}</span>
+          </li>
+        </ul>
+        <div class="text">
+          <p>Привет! Меня зовут Альбина.<br>
+            Я начинающий web-разработчик.<br>
+            Ищу дружную команду для разработки сайтов.<br>
+            Программирование - это бег с препятствиями, преодоление которых приносит новый багаж знаний и удовольствия.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -36,64 +38,13 @@ export default {
 
 <style lang="scss">
 
-.title {
-  text-transform: uppercase;
-  display: flex;
-  text-align: left;
-  position: relative;
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 2rem;
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: -30px;
-    right:0;
-    bottom:0;
-    width: 100%;
-    height: 1px;
-    background: radial-gradient(ellipse at left,dimgray,#fff 80%);
-  }
-}
-%cube {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  opacity: 50%;
-  //bottom: top;
-  left: 0;
-  overflow: hidden;
-  background-color: var(--green);
-  transform: translateX(50%) translateY(50%) rotate(-55deg);
-}
 .about-me {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
-  overflow: hidden;
   position: relative;
-  background-color: #fff;
   display: flex;
-  width: 50%;
-  max-width: 700px;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
-
-  &:after {
-    @extend %cube;
-    //content: '';
-    //position: absolute;
-    //width: 40px;
-    //height: 40px;
-    //opacity: 50%;
-    //bottom: top;
-    //left: 0;
-    //overflow: hidden;
-    //background-color: var(--green);
-    //transform: translateX(50%) translateY(50%) rotate(-55deg);
-  }
 
   .photo {
     width: 500px;
@@ -102,7 +53,6 @@ export default {
   .field-title {
     background: var(--green);
     color: white;
-    //border: 2px solid var(--green;
     border-radius: 3px;
     padding: 0.2rem 0.3rem;
   }

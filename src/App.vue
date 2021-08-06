@@ -1,24 +1,38 @@
 <template>
   <div id="app">
-    <div class="icon-bar">
-      <div :class="['icon-block', {'active': currentBlock === 'AboutMe'}]" @click="setCurrentBlock('AboutMe')">
-        <icon-man class="icon-img"></icon-man>обо мне
-      </div>
-      <div :class="['icon-block', {'active': currentBlock === 'Skills'}]" @click="setCurrentBlock('Skills')">
-        <icon-skills class="icon-img">навыки & знания</icon-skills>
-      </div>
-      <div :class="['icon-block', {'active': currentBlock === 'Win'}]" @click="setCurrentBlock('Win')">
-        <icon-win class="icon-img"></icon-win>чем отличилась
-      </div>
-      <div :class="['icon-block', {'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
-        <icon-experience class="icon-img"></icon-experience>опыт & образование
+    <div class="profile">
+      <header class="header">
+        <div class="icon-bar">
+          <div :class="['icon-block', {'active': currentBlock === 'AboutMe'}]" @click="setCurrentBlock('AboutMe')">
+            <a class="icon-block-link" href="#aboutMe"><icon-man class="icon-img"></icon-man>обо мне</a>
+          </div>
+          <div :class="['icon-block', {'active': currentBlock === 'Skills'}]" @click="setCurrentBlock('Skills')">
+            <a class="icon-block-link" href="#skills"><icon-skills class="icon-img"></icon-skills>навыки & знания</a>
+          </div>
+          <div :class="['icon-block', {'active': currentBlock === 'Win'}]" @click="setCurrentBlock('Win')">
+            <a class="icon-block-link" href="#win"><icon-win class="icon-img"></icon-win>чем отличилась</a>
+          </div>
+          <div :class="['icon-block', {'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
+            <a class="icon-block-link" href="#experienceEducation"><icon-experience class="icon-img"></icon-experience>опыт & образование</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="position">
+        <card-started></card-started>
+        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animated':isVisible}"></about-me>
+        <about-me id="aboutMe" v-if="mobileView"></about-me>
+
+        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" class="animated"></skills>
+        <skills id="skills" v-if="mobileView"></skills>
+
+        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'Skills','animated':currentBlock === 'Win'}]"></win>
+        <win id="win" v-if="mobileView"></win>
+
+        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animated1':currentBlock === !'ExperienceEducation', 'animated': currentBlock === 'ExperienceEducation'}]"></experience-education>
+        <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
       </div>
     </div>
-    <card-started></card-started>
-    <about-me v-show="currentBlock === 'AboutMe'" :class="[{'animated':isVisible}]"></about-me>
-    <skills  v-show="currentBlock === 'Skills'" :class="[{'animated1':currentBlock===!'Skills','animated':currentBlock==='Skills'}]"></skills>
-    <win v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock==='Skills','animated':currentBlock==='Win'}]"></win>
-    <experience-education v-show="currentBlock==='ExperienceEducation'" :class="[{'animated1':currentBlock===!'ExperienceEducation', 'animated': currentBlock==='ExperienceEducation'}]"></experience-education>
   </div>
 </template>
 
@@ -50,30 +64,34 @@ export default {
     currentBlock: 'AboutMe',
     isVisible: false,
     hidden: true,
+    mobileView: false,
   }),
+  created() {
+    this.handleView();
+    window.addEventListener('resize', this.handleView);
+  },
   methods: {
-    setCurrentBlock(value) {
-      this.currentBlock = value;
-      this.isVisible = true;
-    }
+      setCurrentBlock(value) {
+        this.currentBlock = value;
+        this.isVisible = true;
+      },
+    handleView() {
+      if(window.innerWidth <= 1120) {
+        this.mobileView = true;
+      } else {
+        this.mobileView = false;
+      }
+    },
   }
 }
 </script>
 
 <style lang="scss">
+html {
+  scroll-behavior: smooth;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-body, html {
-  height: 100%;
-  background-color: var(--green);
-  position: relative;
-}
 
 .animated {
   animation-duration: 2s;
@@ -105,31 +123,27 @@ body, html {
   }
 }
 
-
-  %cube {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    opacity: 50%;
-    left: 0;
-    overflow: hidden;
-    background-color: var(--green);
-    transform: translateX(50%) translateY(50%) rotate(-55deg);
-  }
-
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
   font-size: 16px;
   align-items: center;
-  height: 100%;
   display: flex;
   justify-content: center;
   background-color: var(--green);
+  padding: 8rem 2rem;
+
+  .profile {
+    display: flex;
+    flex-direction: row;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+  }
   .icon-bar {
-    width: 6rem;
+    width: 90px;
     border-radius: 4px;
     background-color: #fff;
     margin-right: 1rem;
@@ -147,10 +161,23 @@ body, html {
       font-size: 0.7rem;
       color: black;
 
-      &:hover {
-        fill: var(--green);
-        color: var(--green);
+      .icon-block-link {
+        text-decoration: none;
+        color: black;
+        &:hover {
+          fill: var(--green);
+          color: var(--green);
+        }
+        &:active {
+          fill: var(--green);
+          color: var(--green);
+        }
       }
+
+      //&:hover {
+      //  fill: var(--green);
+      //  color: var(--green);
+      //}
 
       &:nth-last-child(n+2):before {
         content: '';
@@ -159,15 +186,16 @@ body, html {
         bottom: 0;
         width: 100%;
         height: 1px;
-        background: radial-gradient(ellipse at right,var(--lightgray),#fff 80%);
+        background: radial-gradient(ellipse at right, var(--lightgray), #fff 80%);
       }
 
       .icon-img {
         padding: 16px;
         width: 100%;
-        height: 100%;
+        height: 68px;
       }
     }
+
     .active {
       fill: var(--green);
       color: var(--green);
@@ -178,15 +206,6 @@ body, html {
     opacity: 0;
     visibility: hidden;
     transition: all 2s linear;
-    //@keyframes fadeInLeft {
-    //  0% {
-    //    opacity: 0;
-    //    transform: translate3d(-70%, 0, 0)
-    //  }
-    //  100% {
-    //    opacity: 1;
-    //    transform: none
-    //  }
   }
 
   .active {
@@ -195,5 +214,33 @@ body, html {
     //display: block;
     transition: all 2s linear;
   }
+
+  .position {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
+  @media only screen and (max-width:1120px) {
+    #app {
+      padding: 1rem 0;
+
+      .profile {
+        width: 810px;
+      }
+
+      .position {
+        display: flex;
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+      }
+
+      .icon-bar {
+        position: fixed;
+        top: 1rem;
+      }
+    }
+  }
 </style>
