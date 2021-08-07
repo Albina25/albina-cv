@@ -78,6 +78,7 @@ export default {
     handleView() {
       if(window.innerWidth <= 1120) {
         this.mobileView = true;
+        this.isVisible = false;
       } else {
         this.mobileView = false;
       }
@@ -89,10 +90,7 @@ export default {
 <style lang="scss">
 html {
   scroll-behavior: smooth;
-
 }
-
-
 .animated {
   animation-duration: 2s;
   animation-name: fadeInLeft
@@ -141,6 +139,7 @@ html {
   .header {
     display: flex;
     align-items: center;
+    z-index: 20;
   }
   .icon-bar {
     width: 90px;
@@ -221,26 +220,82 @@ html {
     align-items: center;
   }
 }
-  @media only screen and (max-width:1120px) {
-    #app {
-      padding: 1rem 0;
+@media only screen and (min-width:824px) and (max-width:1120px) {
 
-      .profile {
-        width: 810px;
-      }
+  #app {
+    padding: 1rem 0;
 
-      .position {
-        display: flex;
-        flex-direction: column;
-        margin-right: auto;
-        margin-left: auto;
-        position: relative;
-      }
+    .profile {
+      width: 810px;
+    }
 
-      .icon-bar {
-        position: fixed;
-        top: 1rem;
+    .position {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+    }
+
+    .icon-bar {
+      position: fixed;
+      top: 1rem;
+    }
+  }
+}
+@media only screen and (max-width:824px) {
+  #app {
+    padding: 1rem 0;
+    width: 100%;
+
+    .profile {
+      flex-direction: column;
+    }
+    .header {
+      width: 100vh;
+      position: fixed;
+      justify-content: space-between;
+      top: 0;
+      left: 0;
+    }
+    .position {
+      display: flex;
+      flex-direction: column;
+      margin-top: 70px;
+      left: auto;
+      position: relative;
+    }
+
+    .icon-bar {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      margin: 0;
+      border-bottom: 1px solid gray;
+      border-radius: 0;
+
+      .icon-block {
+        width: 25%;
+        padding: 0;
+        &:nth-last-child(n+1):before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 1px;
+          height: 100%;
+          background: radial-gradient(ellipse at right, var(--lightgray), #fff 80%);
+        }
+
+        .icon-block-link {
+          padding: 0.5rem;
+        }
+        .icon-img {
+          padding: 8px;
+          height: 50px;
+        }
       }
     }
   }
+}
 </style>

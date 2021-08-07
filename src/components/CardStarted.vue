@@ -25,7 +25,7 @@
       </div>
         <div class="links">
           <div class="link">скачать резюме</div>
-          <div class="link">контакты</div>
+<!--          <div class="link">контакты</div>-->
         </div>
     </div>
   </div>
@@ -124,15 +124,15 @@ export default {
       text-transform: uppercase;
       align-items: center;
 
-      &:before {
-        content: '';
-        position: absolute;
-        align-items: center;
-        left: 50%;
-        width: 1px;
-        height: 100%;
-        background: linear-gradient(to bottom, var(--gray), white);
-      }
+      //&:before {
+      //  content: '';
+      //  position: absolute;
+      //  align-items: center;
+      //  left: 50%;
+      //  width: 1px;
+      //  height: 100%;
+      //  background: linear-gradient(to bottom, var(--gray), white);
+      //}
 
       &:after {
         content: '';
@@ -147,7 +147,7 @@ export default {
     .link {
       cursor: pointer;
       color: black;
-      width: 50%;
+      width: 100%;
 
       &:hover {
         color: var(--green);

@@ -5,10 +5,26 @@
 <!--      <div class="triangle"></div>-->
       <div class="content">
         <ul class="details">
-          <li class="detail" v-for="detail of details" :key="detail.title">
-            <span class="field-title">{{detail.title}}</span>
-            <span class="field-content">{{detail.content}}</span>
+          <li class="detail">
+            <span class="field-title">имя</span>
+            <span class="field-content">альбина кашапова</span>
           </li>
+          <li class="detail">
+            <span class="field-title">email</span>
+            <span>
+              <a class="detail-lint" href="https://mail.google.com/mail/u/2/#inbox?compose=CllgCJNwgHNmJkZCJdSRTzHvczBHFKQbMXVdRGPJzrzhMQjRmNsnCBNRQQmWMwJfzZtKdBwdRwg">axioma.25@gmail.com</a>
+            </span>
+          </li>
+          <li class="detail">
+            <span class="field-title">телефон</span>
+            <span class="field-content">
+              <a class="detail-lint" href="https://wa.me/79874991540">8-987-499-15-40</a>
+            </span>
+          </li>
+<!--          <li class="detail" v-for="detail of details" :key="detail.title">-->
+<!--            <span class="field-title">{{detail.title}}</span>-->
+<!--            <span class="field-content">{{detail.content}}</span>-->
+<!--          </li>-->
         </ul>
         <div class="text">
           <p>Привет! Меня зовут Альбина.<br>
@@ -25,13 +41,6 @@
 <script>
 export default {
   name: "AboutMe",
-  data: () => ({
-    details: [
-      {title: 'Имя', content: 'Альбина Кашапова'},
-      {title: 'Email', content: 'axioma.25@gmail.com'},
-      {title: 'Телефон', content: '8-987-499-15-40'},
-    ],
-  })
 }
 
 </script>
@@ -55,9 +64,19 @@ export default {
     color: white;
     border-radius: 3px;
     padding: 0.2rem 0.3rem;
+    text-transform: capitalize;
   }
   .content {
     padding: 0 4rem;
+  }
+
+  .field-content {
+    text-transform: capitalize;
+  }
+
+  .detail-lint {
+    text-decoration: none;
+    color: black;
   }
 
   .details {
