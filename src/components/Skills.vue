@@ -3,35 +3,38 @@
     <div class="skills">
       <h2 class="title">{{title}}</h2>
 <!--      <div class="triangle"></div>-->
-      <div class="column">
-        <div class="container">
-          <div><icon-graphic class="icon-skills"></icon-graphic></div>
-          <h3 class="title-skills">графика</h3>
-          <ul>
-            <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
-              {{graphic}}
-            </li>
-          </ul>
+      <div class="row">
+        <div class="column">
+          <div class="container-left">
+            <div><icon-graphic class="icon-skills"></icon-graphic></div>
+            <h3 class="title-skills">графика</h3>
+            <ul>
+              <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
+                {{graphic}}
+              </li>
+            </ul>
+          </div>
+          <div class="container-left">
+            <div><icon-keyboard class="icon-skills"></icon-keyboard></div>
+            <h3 class="title-skills">дополнительно</h3>
+            <ul>
+              <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
+                {{moreSkill}}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="container">
-          <div><icon-keyboard class="icon-skills"></icon-keyboard></div>
-          <h3 class="title-skills">дополнительно</h3>
-          <ul>
-            <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
-              {{moreSkill}}
-            </li>
-          </ul>
+        <div class="column">
+          <div>
+            <div><icon-desktop class="icon-skills"></icon-desktop></div>
+            <h3 class="title-skills">front-end разработка</h3>
+            <ul>
+              <li class="skill" v-for="(item, index) of frontend" :key="`frontend-${index}`">
+                {{item}}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="container">
-          <div><icon-desktop class="icon-skills"></icon-desktop></div>
-          <h3 class="title-skills">front-end разработка</h3>
-          <ul>
-            <li class="skill" v-for="(item, index) of frontend" :key="`frontend-${index}`">
-              {{item}}
-            </li>
-          </ul>
-        </div>
-  <!--      <div class="container"></div>-->
       </div>
     </div>
   </div>
@@ -66,14 +69,15 @@ export default {
   position: relative;
   display: flex;
   width: 100%;
-  height: 100%;
+  //height: 100%;
   flex-direction: column;
 
-  .column {
-    position: relative;
+  .row {
     display: flex;
-    flex-flow: column wrap;
-    height: 83%;
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+    width: 100%;
 
     &:before {
       content: '';
@@ -85,6 +89,15 @@ export default {
       background: linear-gradient(to bottom, var(--lightgray), white);
     }
   }
+  .column {
+    display: flex;
+    flex-direction: column;
+    //height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   .title-skills {
     text-transform: capitalize;
@@ -105,20 +118,16 @@ export default {
     margin-bottom: 1rem;
   }
 
-  .container {
+  .container-left {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 50%;
     padding: 1rem;
     height: 50%;
 
-    &:last-child {
-      height: 100%;
-    }
-
-    &:before {
+    &:nth-last-child(n+2):before {
       content: '';
       position: absolute;
       align-items: center;

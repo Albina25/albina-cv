@@ -82,6 +82,7 @@ export default {
   .details {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 2rem;
   }
 
   .detail {
@@ -105,7 +106,6 @@ export default {
     display: flex;
     text-align: left;
     align-items: center;
-    height: 70%;
     flex-grow: 1;
     line-height: 2rem;
   }

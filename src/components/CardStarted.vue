@@ -2,7 +2,8 @@
   <div class="main-card">
     <div class="card-started">
       <div class="block-photo">
-        <img class="image" alt="Iam" src="img/table1.jpg">
+        <div class="image"></div>
+<!--        <img class="image" alt="Iam" src="img/table1.jpg">-->
       </div>
       <div  class="name">альбина кашапова</div>
       <div class="speciality">frontend developer</div>
@@ -24,7 +25,7 @@
               </span>
       </div>
         <div class="links">
-          <div class="link">скачать резюме</div>
+          <div class="link"><a class="link-download" href="/cv/albina-cv.pdf" download>скачать резюме</a></div>
 <!--          <div class="link">контакты</div>-->
         </div>
     </div>
@@ -47,9 +48,9 @@ export default {
 </script>
 
 <style lang="scss">
+$img: '../assets/table.jpg';
 .main-card {
   position: relative;
-  //height: 90%;
   min-width: 500px;
   background: #fff;
   box-shadow: -4px -10px 10px 12px rgb(0 0 0 / 10%);
@@ -61,14 +62,21 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: 100%;
 
     .block-photo {
       margin-bottom: 1rem;
       overflow: hidden;
+      width: 100%;
+      padding: 0.5rem;
 
       .image {
-        width: 100%;
-        padding: 0.5rem;
+        //width: 100%;
+        //padding: 0.5rem;
+        height: 50vh;
+        background-size: auto 100%;
+        background: url($img);
+        background-size: cover;
       }
     }
 
@@ -124,16 +132,6 @@ export default {
       text-transform: uppercase;
       align-items: center;
 
-      //&:before {
-      //  content: '';
-      //  position: absolute;
-      //  align-items: center;
-      //  left: 50%;
-      //  width: 1px;
-      //  height: 100%;
-      //  background: linear-gradient(to bottom, var(--gray), white);
-      //}
-
       &:after {
         content: '';
         position: absolute;
@@ -149,17 +147,33 @@ export default {
       color: black;
       width: 100%;
 
-      &:hover {
-        color: var(--green);
+      .link-download {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          color: var(--green);
+        }
       }
     }
   }
 }
   @media only screen and (max-width:1120px) {
     .main-card {
-      width: 600px;
+      width: 100%;
+      max-width: 600px;
+      min-width: 200px;
       margin-bottom: 1rem;
+
+      .card-started {
+        height: 100%;
+
+        .block-photo {
+          .image {
+            height: 60vh;
+          }
+        }
+      }
     }
   }
-
 </style>

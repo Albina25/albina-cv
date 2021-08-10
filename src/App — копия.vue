@@ -124,7 +124,7 @@ html {
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  //color: #2c3e50;
+  color: #2c3e50;
   font-size: 16px;
   align-items: center;
   display: flex;
@@ -158,11 +158,11 @@ html {
       padding-bottom: 1rem;
       text-transform: uppercase;
       font-size: 0.7rem;
-      //color: black;
+      color: black;
 
       .icon-block-link {
         text-decoration: none;
-        //color: black;
+        color: black;
         &:hover {
           fill: var(--green);
           color: var(--green);
@@ -173,7 +173,12 @@ html {
         }
       }
 
-     &:nth-last-child(n+2):before {
+      //&:hover {
+      //  fill: var(--green);
+      //  color: var(--green);
+      //}
+
+      &:nth-last-child(n+2):before {
         content: '';
         position: absolute;
         left: 0;
@@ -202,13 +207,20 @@ html {
     transition: all 2s linear;
   }
 
+  .active {
+    opacity: 1;
+    //visibility: visible;
+    //display: block;
+    transition: all 2s linear;
+  }
+
   .position-blocks {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 }
-@media only screen and (min-width:825px) and (max-width:1120px) {
+@media only screen and (min-width:824px) and (max-width:1120px) {
 
   #app {
     padding: 1rem 0;
@@ -223,6 +235,7 @@ html {
       margin-right: auto;
       margin-left: auto;
       position: relative;
+      margin-top: 70px;
     }
 
     .icon-bar {
@@ -239,40 +252,37 @@ html {
     .profile {
       flex-direction: column;
     }
-
     .header {
       width: 100%;
       position: fixed;
+      justify-content: space-between;
       top: 0;
       left: 0;
-      background-color: white;
-      border-bottom: 1px solid gray;
     }
-
     .position-blocks {
       display: flex;
       flex-direction: column;
       margin-top: 70px;
-      left: 100%;
+      left: auto;
+      position: relative;
     }
 
     .icon-bar {
       display: flex;
       flex-flow: row nowrap;
-      width: 100%;
+      width: auto;
       margin: 0;
+      border-bottom: 1px solid gray;
       border-radius: 0;
-      position: relative;
-      justify-content: space-around;
 
       .icon-block {
         width: 25%;
         padding: 0;
-        position: relative;
-        &:nth-last-child(n+1):after {
+        &:nth-last-child(n+1):before {
           content: '';
           position: absolute;
           left: 0;
+          bottom: 0;
           width: 1px;
           height: 100%;
           background: radial-gradient(ellipse at right, var(--lightgray), #fff 80%);
@@ -281,7 +291,6 @@ html {
         .icon-block-link {
           padding: 0.5rem;
         }
-
         .icon-img {
           padding: 8px;
           height: 50px;
