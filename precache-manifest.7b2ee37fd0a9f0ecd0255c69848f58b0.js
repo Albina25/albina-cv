@@ -1,7 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ce2985e62978475553c",
-    "url": "/albina-cv/css/app.17f5c2da.css"
+    "revision": "71ed07fd76c10f7b7a6a",
+    "url": "/albina-cv/css/app.1a359bec.css"
+  },
+  {
+    "revision": "a2ba0ef1978526679e69c8a1a0073a35",
+    "url": "/albina-cv/cv/albina-cv.docx"
+  },
+  {
+    "revision": "3a27e275a94215ff70aae14f32fd75e8",
+    "url": "/albina-cv/cv/albina-cv.pdf"
   },
   {
     "revision": "ae9b0d9a5ed7007910b66f593f0b31bd",
@@ -49,15 +57,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "c06a63ddfde9cbd7f919e88e50ec92f9",
+    "url": "/albina-cv/img/table.c06a63dd.jpg"
+  },
+  {
+    "revision": "c06a63ddfde9cbd7f919e88e50ec92f9",
     "url": "/albina-cv/img/table1.jpg"
   },
   {
-    "revision": "f1f2724b6564ae1c5ebbef4df2c5c019",
+    "revision": "5734dabbbc774bae47c8e7d6b5d12e77",
     "url": "/albina-cv/index.html"
   },
   {
-    "revision": "7ce2985e62978475553c",
-    "url": "/albina-cv/js/app.92f6a535.js"
+    "revision": "71ed07fd76c10f7b7a6a",
+    "url": "/albina-cv/js/app.a21965cc.js"
   },
   {
     "revision": "daeae94a48917fa23eb9",
