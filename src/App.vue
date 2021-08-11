@@ -124,7 +124,6 @@ html {
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  //color: #2c3e50;
   font-size: 16px;
   align-items: center;
   display: flex;
@@ -162,7 +161,8 @@ html {
 
       .icon-block-link {
         text-decoration: none;
-        //color: black;
+        color: black;
+
         &:hover {
           fill: var(--green);
           color: var(--green);

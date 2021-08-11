@@ -108,6 +108,7 @@ export default {
     align-items: center;
     flex-grow: 1;
     line-height: 2rem;
+    padding-bottom: 1rem;
   }
 }
 </style>
