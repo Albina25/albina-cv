@@ -2,7 +2,6 @@
   <div class="information-block">
     <div class="skills">
       <h2 class="title">{{title}}</h2>
-<!--      <div class="triangle"></div>-->
       <div class="row">
         <div class="column">
           <div class="container-left">
@@ -69,7 +68,6 @@ export default {
   position: relative;
   display: flex;
   width: 100%;
-  //height: 100%;
   flex-direction: column;
 
   .row {
@@ -89,15 +87,15 @@ export default {
       background: linear-gradient(to bottom, var(--lightgray), white);
     }
   }
+
   .column {
     display: flex;
     flex-direction: column;
-    //height: 100%;
     width: 50%;
     align-items: center;
     justify-content: center;
+    //padding: 0 100px;
   }
-
 
   .title-skills {
     text-transform: capitalize;
@@ -136,7 +134,6 @@ export default {
       width: 100%;
       background: linear-gradient(to left, white, var(--lightgray), white);
     }
-
   }
 }
 </style>

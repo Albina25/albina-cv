@@ -2,7 +2,6 @@
   <div class="information-block">
     <div class="experience-education">
       <span class="title">опыт & образование</span>
-<!--      <div class="triangle"></div>-->
       <div class="column">
         <div class="container">
           <icon-work class="icon"></icon-work>

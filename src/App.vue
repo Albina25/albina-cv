@@ -23,13 +23,13 @@
         <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animated':isVisible}"></about-me>
         <about-me id="aboutMe" v-if="mobileView"></about-me>
 
-        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" class="animated"></skills>
+        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animated':isVisible}"></skills>
         <skills id="skills" v-if="mobileView"></skills>
 
-        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'Skills','animated':currentBlock === 'Win'}]"></win>
+        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'Skills','animated':isVisible}]"></win>
         <win id="win" v-if="mobileView"></win>
 
-        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animated1':currentBlock === !'ExperienceEducation', 'animated': currentBlock === 'ExperienceEducation'}]"></experience-education>
+        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animated1':currentBlock === !'ExperienceEducation', 'animated': isVisible}]"></experience-education>
         <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
       </div>
     </div>
@@ -157,7 +157,6 @@ html {
       padding-bottom: 1rem;
       text-transform: uppercase;
       font-size: 0.7rem;
-      //color: black;
 
       .icon-block-link {
         text-decoration: none;
@@ -167,10 +166,10 @@ html {
           fill: var(--green);
           color: var(--green);
         }
-        &:active {
-          fill: var(--green);
-          color: var(--green);
-        }
+        //&:active {
+        //  fill: red;
+        //  color: var(--green);
+        //}
       }
 
      &:nth-last-child(n+2):before {
@@ -235,6 +234,7 @@ html {
   #app {
     padding: 1rem 0;
     width: 100%;
+    font-size: 14px;
 
     .profile {
       flex-direction: column;
@@ -269,6 +269,8 @@ html {
         width: 25%;
         padding: 0;
         position: relative;
+        font-size: 12px;
+        justify-content: flex-start;
         &:nth-last-child(n+1):after {
           content: '';
           position: absolute;
@@ -280,11 +282,13 @@ html {
 
         .icon-block-link {
           padding: 0.5rem;
+          font-size: 0.7rem;
         }
 
         .icon-img {
           padding: 8px;
-          height: 50px;
+          height: 45px;
+
         }
       }
     }
