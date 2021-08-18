@@ -4,26 +4,6 @@
       <h2 class="title">{{title}}</h2>
       <div class="row">
         <div class="column">
-          <div class="container-left">
-            <div><icon-graphic class="icon-skills"></icon-graphic></div>
-            <h3 class="title-skills">графика</h3>
-            <ul>
-              <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
-                {{graphic}}
-              </li>
-            </ul>
-          </div>
-          <div class="container-left">
-            <div><icon-keyboard class="icon-skills"></icon-keyboard></div>
-            <h3 class="title-skills">дополнительно</h3>
-            <ul>
-              <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
-                {{moreSkill}}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="column">
           <div>
             <div><icon-desktop class="icon-skills"></icon-desktop></div>
             <h3 class="title-skills">front-end разработка</h3>
@@ -34,6 +14,28 @@
             </ul>
           </div>
         </div>
+
+        <div class="column">
+          <div class="container-right">
+            <div><icon-graphic class="icon-skills"></icon-graphic></div>
+            <h3 class="title-skills">графика</h3>
+            <ul>
+              <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
+                {{graphic}}
+              </li>
+            </ul>
+          </div>
+          <div class="container-right">
+            <div><icon-keyboard class="icon-skills"></icon-keyboard></div>
+            <h3 class="title-skills">дополнительно</h3>
+            <ul>
+              <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
+                {{moreSkill}}
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -94,7 +96,7 @@ export default {
     width: 50%;
     align-items: center;
     justify-content: center;
-    //padding: 0 100px;
+    padding: 0 5rem;
   }
 
   .title-skills {
@@ -116,7 +118,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  .container-left {
+  .container-right {
     position: relative;
     display: flex;
     justify-content: center;
@@ -124,6 +126,7 @@ export default {
     flex-direction: column;
     padding: 1rem;
     height: 50%;
+
 
     &:nth-last-child(n+2):before {
       content: '';

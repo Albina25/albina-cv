@@ -3,33 +3,33 @@
     <div class="profile">
       <header class="header">
         <div class="icon-bar">
-          <div :class="['icon-block', {'active': currentBlock === 'AboutMe'}]" @click="setCurrentBlock('AboutMe')">
-            <a class="icon-block-link" href="#aboutMe"><icon-man class="icon-img"></icon-man>обо мне</a>
+          <div class="icon-block" @click="setCurrentBlock('AboutMe')">
+            <a :class="['icon-block-link', {'active': currentBlock === 'AboutMe'}]" href="#aboutMe"><icon-man class="icon-img"></icon-man>обо мне</a>
           </div>
-          <div :class="['icon-block', {'active': currentBlock === 'Skills'}]" @click="setCurrentBlock('Skills')">
-            <a class="icon-block-link" href="#skills"><icon-skills class="icon-img"></icon-skills>навыки & знания</a>
+          <div class="icon-block" @click="setCurrentBlock('Skills')">
+            <a :class="['icon-block-link', {'active': currentBlock === 'Skills'}]" href="#skills"><icon-skills class="icon-img"></icon-skills>навыки & знания</a>
           </div>
-          <div :class="['icon-block', {'active': currentBlock === 'Win'}]" @click="setCurrentBlock('Win')">
-            <a class="icon-block-link" href="#win"><icon-win class="icon-img"></icon-win>чем отличилась</a>
+          <div class="icon-block" @click="setCurrentBlock('Win')">
+            <a :class="['icon-block-link', {'active': currentBlock === 'Win'}]" href="#win"><icon-win class="icon-img"></icon-win>чем отличилась</a>
           </div>
-          <div :class="['icon-block', {'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
-            <a class="icon-block-link" href="#experienceEducation"><icon-experience class="icon-img"></icon-experience>опыт & образование</a>
+          <div class="icon-block" @click="setCurrentBlock('ExperienceEducation')">
+            <a :class="['icon-block-link', {'active': currentBlock === 'ExperienceEducation'}]" href="#experienceEducation"><icon-experience class="icon-img"></icon-experience>опыт & образование</a>
           </div>
         </div>
       </header>
 
       <div class="position-blocks">
         <card-started></card-started>
-        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animated':isVisible}"></about-me>
+        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn':isVisible}"></about-me>
         <about-me id="aboutMe" v-if="mobileView"></about-me>
 
-        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animated':isVisible}"></skills>
+        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn':isVisible}"></skills>
         <skills id="skills" v-if="mobileView"></skills>
 
-        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'Skills','animated':isVisible}]"></win>
+        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'AboutMe','animatedIn':isVisible}]"></win>
         <win id="win" v-if="mobileView"></win>
 
-        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animated1':currentBlock === !'ExperienceEducation', 'animated': isVisible}]"></experience-education>
+        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animatedOut':currentBlock === !'ExperienceEducation', 'animatedIn': isVisible}]"></experience-education>
         <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
       </div>
     </div>
@@ -58,12 +58,11 @@ export default {
     IconMan,
     IconWin,
     IconSkills,
-    IconExperience
+    IconExperience,
   },
   data: () => ({
     currentBlock: 'AboutMe',
     isVisible: false,
-    hidden: true,
     mobileView: false,
   }),
   created() {
@@ -91,8 +90,9 @@ export default {
 html {
   scroll-behavior: smooth;
 }
-.animated {
-  animation-duration: 2s;
+
+.animatedIn {
+  animation-duration: 1s;
   animation-name: fadeInLeft
 }
 @keyframes fadeInLeft {
@@ -106,8 +106,8 @@ html {
   }
 }
 
-.animated1 {
-  animation-duration: 2s;
+.animatedOut {
+  animation-duration: 1s;
   animation-name: fadeOutLeft
 }
 @keyframes fadeOutLeft {
@@ -117,7 +117,7 @@ html {
   }
   0% {
     opacity: 1;
-    //transform: none
+    transform: none
   }
 }
 
@@ -166,10 +166,6 @@ html {
           fill: var(--green);
           color: var(--green);
         }
-        //&:active {
-        //  fill: red;
-        //  color: var(--green);
-        //}
       }
 
      &:nth-last-child(n+2):before {
@@ -201,6 +197,12 @@ html {
     transition: all 2s linear;
   }
 
+  .activeBlock {
+    opacity: 1;
+    visibility: visible;
+    transition: all 2s linear;
+  }
+
   .position-blocks {
     display: flex;
     flex-direction: row;
@@ -210,7 +212,8 @@ html {
 @media only screen and (min-width:825px) and (max-width:1120px) {
 
   #app {
-    padding: 1rem 0;
+    padding: 0;
+    padding-top: 1rem;
 
     .profile {
       width: 810px;
@@ -232,7 +235,8 @@ html {
 }
 @media only screen and (max-width:824px) {
   #app {
-    padding: 1rem 0;
+    padding: 0;
+    padding-top: 1rem;
     width: 100%;
     font-size: 14px;
 

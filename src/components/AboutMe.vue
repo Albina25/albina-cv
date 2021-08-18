@@ -2,7 +2,6 @@
   <div class="information-block">
     <div class="about-me">
       <span class="title">обо мне</span>
-<!--      <div class="triangle"></div>-->
       <div class="content">
         <ul class="details">
           <li class="detail">
@@ -75,7 +74,7 @@ export default {
   }
 
   .detail-lint {
-    text-decoration: none;
+    //text-decoration: none;
     color: black;
   }
 

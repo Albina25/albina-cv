@@ -8,25 +8,29 @@
       <div  class="name">альбина кашапова</div>
       <div class="speciality">frontend developer</div>
       <div class="social">
-              <span>
-                <a class="contact-icon" href="tel:+79874991540">
-                  <icon-phone class="icon"></icon-phone>
-                </a>
-              </span>
         <span>
-                <a class="contact-icon" href="https://wa.me/79874991540">
-                  <icon-whats-app class="icon"></icon-whats-app>
-                </a>
-              </span>
+          <a class="contact-icon" href="tel:+79874991540">
+            <icon-phone class="icon"></icon-phone>
+          </a>
+        </span>
         <span>
-                <a class="contact-icon" href="https://mail.google.com/mail/u/2/#inbox?compose=CllgCJNwgHNmJkZCJdSRTzHvczBHFKQbMXVdRGPJzrzhMQjRmNsnCBNRQQmWMwJfzZtKdBwdRwg">
-                  <icon-envelope class="icon"></icon-envelope>
-                </a>
-              </span>
+          <a class="contact-icon" href="https://wa.me/79874991540">
+            <icon-whats-app class="icon"></icon-whats-app>
+          </a>
+        </span>
+        <span>
+          <a class="contact-icon" href="https://mail.google.com/mail/u/2/#inbox?compose=CllgCJNwgHNmJkZCJdSRTzHvczBHFKQbMXVdRGPJzrzhMQjRmNsnCBNRQQmWMwJfzZtKdBwdRwg">
+            <icon-envelope class="icon"></icon-envelope>
+          </a>
+        </span>
+        <span>
+          <a class="contact-icon" target="_blank" href="https://github.com/albina25">
+            <icon-git class="icon"></icon-git>
+          </a>
+        </span>
       </div>
         <div class="links">
-          <div class="link"><a class="link-download" href="/cv/albina-cv.pdf" download>скачать резюме</a></div>
-<!--          <div class="link">контакты</div>-->
+          <div class="link"><a class="link-download" href="cv/albina-cv.pdf" download>скачать резюме</a></div>
         </div>
     </div>
   </div>
@@ -36,13 +40,15 @@
 import IconPhone from './icons/IconPhone.vue'
 import IconWhatsApp from './icons/IconWhatsApp.vue'
 import IconEnvelope from './icons/IconEnvelope.vue'
+import IconGit from "./icons/IconGit.vue";
 
 export default {
   name: 'CardStarted',
   components: {
     IconPhone,
     IconWhatsApp,
-    IconEnvelope
+    IconEnvelope,
+    IconGit,
   },
 }
 </script>
@@ -107,10 +113,6 @@ $img: '../assets/table.jpg';
       align-items: center;
       text-decoration: none;
       margin-right: 1rem;
-
-      &:hover {
-        fill: var(--green);
-      }
     }
 
     .icon {
