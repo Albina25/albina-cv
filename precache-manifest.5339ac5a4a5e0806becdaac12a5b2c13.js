@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dca34931f5592f610ee9",
-    "url": "/albina-cv/css/app.1d3395d8.css"
+    "revision": "1e6fe7d108aaab7b91da",
+    "url": "/albina-cv/css/app.cf35ce0e.css"
   },
   {
     "revision": "a2ba0ef1978526679e69c8a1a0073a35",
@@ -64,11 +64,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/albina-cv/img/table1.jpg"
   },
   {
-    "revision": "d136beae26ffce65a138a3a4e9bfeb05",
+    "revision": "75beaab1b509c6d18b0c41bb16370870",
     "url": "/albina-cv/index.html"
   },
   {
-    "revision": "dca34931f5592f610ee9",
+    "revision": "1e6fe7d108aaab7b91da",
     "url": "/albina-cv/js/app.85f687d0.js"
   },
   {
