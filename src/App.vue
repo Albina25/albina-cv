@@ -33,7 +33,7 @@
 
       <div class="position-blocks">
         <card-started></card-started>
-        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn':isVisible}"></about-me>
+        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'"></about-me>
         <about-me id="aboutMe" v-if="mobileView"></about-me>
 
         <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn':isVisible}"></skills>
@@ -143,7 +143,7 @@ html {
     transform: translate3d(-70%, 0, 0)
   }
   0% {
-    opacity: 1;
+    opacity: 50;
     transform: none
   }
 }
