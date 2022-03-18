@@ -20,15 +20,16 @@
 
 export default {
   name: "IconJob",
-  data: () => ({
-    projects:{
-      title: 'Тесты',
-      url: 'https://github.com/albina25/tests',
-      src: 'img/img-projects/tests.png',
-      discription: 'Здесь пока размещу один небольшой проект',
-    },
-
-  }),
+  data() {
+    return {
+      projects: {
+        title: 'Тесты',
+        url: 'https://github.com/albina25/tests',
+        src: 'img/img-projects/tests.png',
+        discription: 'Здесь пока размещу один небольшой проект',
+      },
+    }
+  }
 }
 </script>
 

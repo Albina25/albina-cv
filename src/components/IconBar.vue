@@ -31,9 +31,11 @@ export default {
     IconSkills,
     IconExperience
   },
-  data: () => ({
-    currentBlock: 'AboutMe',
-  }),
+  data() {
+    return {
+      currentBlock: 'AboutMe',
+    }
+  },
   methods: {
     setCurrentBlock(value) {
       this.isVisible = true;

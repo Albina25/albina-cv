@@ -53,12 +53,14 @@ export default {
     IconKeyboard,
     IconGraphic
   },
-  data: () => ({
-    title: 'навыки & знания',
-    graphics: ['Adobe Photoshop', 'Adobe Premiere Pro'],
-    frontend: ['HTML5', 'CSS3', 'Java Script', 'Vue.js', 'Nuxt.js'],
-    moreSkills: ['GIT', 'English'],
-  })
+  data() {
+    return {
+      title: 'навыки & знания',
+      graphics: ['Adobe Photoshop', 'Adobe Premiere Pro'],
+      frontend: ['HTML5', 'CSS3', 'Java Script', 'Vue.js', 'Nuxt.js'],
+      moreSkills: ['GIT', 'English'],
+    }
+  }
 }
 
 </script>

@@ -80,14 +80,19 @@ export default {
     IconExperience,
     IconProjects,
   },
-  data: () => ({
-    currentBlock: 'AboutMe',
-    isVisible: false,
-    mobileView: false,
-  }),
+  data() {
+    return {
+      currentBlock: 'AboutMe',
+      isVisible: false,
+      mobileView: false,
+    }
+  },
   created() {
     this.handleView();
     window.addEventListener('resize', this.handleView);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleView);
   },
   methods: {
     setCurrentBlock(value) {
@@ -122,7 +127,7 @@ html {
     transform: translate3d(-70%, 0, 0)
   }
   100% {
-    opacity: 1;
+    opacity: 50;
     transform: none
   }
 }
