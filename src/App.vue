@@ -156,7 +156,7 @@ html {
   display: flex;
   justify-content: center;
   background-color: var(--green);
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
 
   .profile {
     display: flex;
