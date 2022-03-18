@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dbb34674ef8273e9e91c",
+    "revision": "89b4982e0fe79e9685e1",
     "url": "/albina-cv/css/app.488db26a.css"
   },
   {
@@ -52,14 +52,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/albina-cv/img/1.jpg"
   },
   {
-    "revision": "3ac36a393e0a585637dbf4c4bf6ba013",
-    "url": "/albina-cv/img/iam.jpg"
-  },
-  {
-    "revision": "85e9f75d890bb599c660bec6c345718e",
-    "url": "/albina-cv/img/img-projects/tests — копия.png"
-  },
-  {
     "revision": "9c156b41aa1ba39c2532ac05b69392fd",
     "url": "/albina-cv/img/img-projects/tests.png"
   },
@@ -72,12 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/albina-cv/img/table1.jpg"
   },
   {
-    "revision": "7b3ba3141bfdcaba1f3538ebf52e54f3",
+    "revision": "b3050425eba25f3c0d93c2a399403690",
     "url": "/albina-cv/index.html"
   },
   {
-    "revision": "dbb34674ef8273e9e91c",
-    "url": "/albina-cv/js/app.0c234542.js"
+    "revision": "89b4982e0fe79e9685e1",
+    "url": "/albina-cv/js/app.3e666e36.js"
   },
   {
     "revision": "daeae94a48917fa23eb9",
