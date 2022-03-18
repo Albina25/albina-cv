@@ -4,16 +4,29 @@
       <header class="header">
         <div class="icon-bar">
           <div class="icon-block" @click="setCurrentBlock('AboutMe')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'AboutMe'}]" href="#aboutMe"><icon-man class="icon-img"></icon-man>обо мне</a>
+            <a :class="['icon-block-link', {'active': currentBlock === 'AboutMe'}]" href="#aboutMe">
+              <icon-man class="icon-img"></icon-man>обо мне
+            </a>
           </div>
           <div class="icon-block" @click="setCurrentBlock('Skills')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'Skills'}]" href="#skills"><icon-skills class="icon-img"></icon-skills>навыки & знания</a>
+            <a :class="['icon-block-link', {'active': currentBlock === 'Skills'}]" href="#skills">
+              <icon-skills class="icon-img"></icon-skills>навыки & знания
+            </a>
+          </div>
+          <div class="icon-block" @click="setCurrentBlock('Projects')">
+            <a :class="['icon-block-link', {'active': currentBlock === 'Projects'}]" href="#projects">
+              <icon-projects class="icon-img"></icon-projects>проекты
+            </a>
           </div>
           <div class="icon-block" @click="setCurrentBlock('Win')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'Win'}]" href="#win"><icon-win class="icon-img"></icon-win>чем отличилась</a>
+            <a :class="['icon-block-link', {'active': currentBlock === 'Win'}]" href="#win">
+              <icon-win class="icon-img"></icon-win>чем отличилась
+            </a>
           </div>
           <div class="icon-block" @click="setCurrentBlock('ExperienceEducation')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'ExperienceEducation'}]" href="#experienceEducation"><icon-experience class="icon-img"></icon-experience>опыт & образование</a>
+            <a :class="['icon-block-link', {'active': currentBlock === 'ExperienceEducation'}]" href="#experienceEducation">
+              <icon-experience class="icon-img"></icon-experience>опыт & образование
+            </a>
           </div>
         </div>
       </header>
@@ -25,6 +38,9 @@
 
         <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn':isVisible}"></skills>
         <skills id="skills" v-if="mobileView"></skills>
+
+        <projects v-if=!mobileView v-show="currentBlock === 'Projects'" :class="{'animatedIn':isVisible}"></projects>
+        <projects id="projects" v-if="mobileView"></projects>
 
         <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'AboutMe','animatedIn':isVisible}]"></win>
         <win id="win" v-if="mobileView"></win>
@@ -41,11 +57,13 @@ import CardStarted from './components/CardStarted.vue'
 import AboutMe from './components/AboutMe.vue'
 import ExperienceEducation from './components/ExperienceEducation.vue'
 import Skills from './components/Skills.vue'
+import Projects from './components/Projects.vue'
 import Win from './components/Win.vue'
 import IconMan from "./components/icons/IconMan.vue";
 import IconWin from "./components/icons/IconWin.vue";
 import IconSkills from "./components/icons/IconSkills.vue";
 import IconExperience from "./components/icons/IconExperience.vue";
+import IconProjects from "./components/icons/IconProjects.vue";
 
 export default {
   name: 'App',
@@ -55,10 +73,12 @@ export default {
     ExperienceEducation,
     Skills,
     Win,
+    Projects,
     IconMan,
     IconWin,
     IconSkills,
     IconExperience,
+    IconProjects,
   },
   data: () => ({
     currentBlock: 'AboutMe',

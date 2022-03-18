@@ -139,4 +139,11 @@ export default {
     }
   }
 }
+@media only screen and (max-width:1120px) {
+  .skills {
+    .column {
+      padding: 0 4rem;
+    }
+  }
+}
 </style>
