@@ -33,7 +33,7 @@
 
       <div class="position-blocks">
         <card-started></card-started>
-        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'"></about-me>
+        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn':isVisible}"></about-me>
         <about-me id="aboutMe" v-if="mobileView"></about-me>
 
         <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn':isVisible}"></skills>
@@ -116,37 +116,37 @@ html {
   scroll-behavior: smooth;
 }
 
-.animatedIn {
-  animation-duration: 1s;
-  animation-name: fadeInLeft
-}
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translate3d(-70%, 0, 0)
-  }
-  100% {
-    opacity: 50;
-    transform: none
-  }
-}
-
-.animatedOut {
-  animation-duration: 1s;
-  animation-name: fadeOutLeft
-}
-
-@keyframes fadeOutLeft {
-  100% {
-    opacity: 0;
-    transform: translate3d(-70%, 0, 0)
-  }
-  0% {
-    opacity: 50;
-    transform: none
-  }
-}
+//.animatedIn {
+//  animation-duration: 1s;
+//  animation-name: fadeInLeft
+//}
+//
+//@keyframes fadeInLeft {
+//  0% {
+//    opacity: 0;
+//    transform: translate3d(-70%, 0, 0)
+//  }
+//  100% {
+//    opacity: 50;
+//    transform: none
+//  }
+//}
+//
+//.animatedOut {
+//  animation-duration: 1s;
+//  animation-name: fadeOutLeft
+//}
+//
+//@keyframes fadeOutLeft {
+//  100% {
+//    opacity: 0;
+//    transform: translate3d(-70%, 0, 0)
+//  }
+//  0% {
+//    opacity: 50;
+//    transform: none
+//  }
+//}
 
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
