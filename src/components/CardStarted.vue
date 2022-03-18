@@ -160,7 +160,7 @@ $img: '../assets/table.jpg';
     }
   }
 }
-  @media only screen and (min-width:865px) and (max-width:1120px) {
+  @media only screen and (min-width:825px) and (max-width:1120px) {
     .main-card {
       width: 100%;
       //height: calc(100vh - 90px);
@@ -180,7 +180,7 @@ $img: '../assets/table.jpg';
     }
   }
 
-@media only screen and (max-width:864px) {
+@media only screen and (max-width:824px) {
   .main-card {
     width: 100%;
     height: calc(100vh - 95px);
@@ -189,7 +189,6 @@ $img: '../assets/table.jpg';
     margin-bottom: 1rem;
 
     .card-started {
-
       .block-photo {
         .image {
           height: 70vh;

@@ -314,6 +314,7 @@ html {
         .icon-block-link {
           padding: 0.5rem;
           font-size: 0.7rem;
+          min-height: 87px;
         }
 
         .icon-img {
