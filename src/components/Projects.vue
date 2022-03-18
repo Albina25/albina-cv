@@ -4,11 +4,11 @@
       <span class="title">Проекты</span>
       <div class="column">
         <div class="container">
-          <h3 class="position">{{projects.title}}</h3>
+          <h3 class="position">{{ projects.title }}</h3>
           <a :href="projects.url" target="_blank" class="position">
             <img class="img-project" :src="projects.src" alt="project">
           </a>
-          <span>{{projects.discription}}</span>
+          <span>{{ projects.discription }}</span>
         </div>
 
       </div>
@@ -22,9 +22,9 @@ export default {
   name: "IconJob",
   data: () => ({
     projects:{
-      title:'Тесты',
+      title: 'Тесты',
       url: 'https://github.com/albina25/tests',
-      src: '/img/img-projects/tests.png',
+      src: 'img/img-projects/tests.png',
       discription: 'Здесь пока размещу один небольшой проект',
     },
 
@@ -64,6 +64,7 @@ export default {
       background: linear-gradient(to left, white, #ddd, white);
     }
   }
+
   .icon {
     fill: var(--green);
     width: 80px;

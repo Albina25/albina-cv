@@ -1,11 +1,11 @@
 <template>
   <div class="information-block">
     <div class="wins">
-      <h2 class="title">{{title}}</h2>
+      <h2 class="title">{{ title }}</h2>
       <div class="containers">
         <div class="winnings" v-for="(item,index) of winnings" :key="index">
-          <h3 class="title-win">{{item.title}}</h3>
-          <span>{{item.win}}</span>
+          <h3 class="title-win">{{ item.title }}</h3>
+          <span>{{ item.win }}</span>
         </div>
       </div>
     </div>
@@ -67,6 +67,5 @@ export default {
       background: linear-gradient(to left, white, #ddd, white);
     }
   }
-
 }
 </style>

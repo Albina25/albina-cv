@@ -5,16 +5,16 @@
       <div class="column">
         <div class="container">
           <icon-work class="icon"></icon-work>
-          <h3 class="position">{{experience.title}}</h3>
-          <span class="position">{{experience.position}}</span>
-          <span>{{experience.value}}</span>
+          <h3 class="position">{{ experience.title }}</h3>
+          <span class="position">{{ experience.position }}</span>
+          <span>{{ experience.value }}</span>
         </div>
         <div class="container">
           <icon-education class="icon"></icon-education>
-          <h3 class="position">{{education.title}}</h3>
-          <span class="position">{{education.year}}</span>
-          <span class="position">{{education.faculty}}</span>
-          <span>{{education.speciality}}</span>
+          <h3 class="position">{{ education.title }}</h3>
+          <span class="position">{{ education.year }}</span>
+          <span class="position">{{ education.faculty }}</span>
+          <span>{{ education.speciality }}</span>
         </div>
       </div>
     </div>
@@ -33,15 +33,15 @@ export default {
   },
   data: () => ({
     experience:{
-      title:'ООО "ИНТАС-Компани"',
+      title: 'ООО "ИНТАС-Компани"',
       position: 'Инженер поддержки ИТ инфраструктуры',
       value: 'Диагностика и решение неисправностей в системах',
     },
     education:{
-      title:'УГАТУ - Уфимский Государственный Авиационный Технический Университет',
-      faculty:'Факультет информатики и робототехники',
-      speciality:'Автоматизированные системы обработки информации и управления',
-      year:'2003-2008',
+      title: 'УГАТУ - Уфимский Государственный Авиационный Технический Университет',
+      faculty: 'Факультет информатики и робототехники',
+      speciality: 'Автоматизированные системы обработки информации и управления',
+      year: '2003-2008',
     },
   }),
 }
@@ -79,6 +79,7 @@ export default {
       background: linear-gradient(to left, white, #ddd, white);
     }
   }
+
   .icon {
     fill:var(--green);
     width: 80px;

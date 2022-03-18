@@ -1,7 +1,7 @@
 <template>
   <div class="information-block">
     <div class="skills">
-      <h2 class="title">{{title}}</h2>
+      <h2 class="title">{{ title }}</h2>
       <div class="row">
         <div class="column">
           <div>
@@ -9,7 +9,7 @@
             <h3 class="title-skills">front-end разработка</h3>
             <ul>
               <li class="skill" v-for="(item, index) of frontend" :key="`frontend-${index}`">
-                {{item}}
+                {{ item }}
               </li>
             </ul>
           </div>
@@ -21,7 +21,7 @@
             <h3 class="title-skills">графика</h3>
             <ul>
               <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
-                {{graphic}}
+                {{ graphic }}
               </li>
             </ul>
           </div>
@@ -30,7 +30,7 @@
             <h3 class="title-skills">дополнительно</h3>
             <ul>
               <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
-                {{moreSkill}}
+                {{ moreSkill }}
               </li>
             </ul>
           </div>
@@ -139,6 +139,7 @@ export default {
     }
   }
 }
+
 @media only screen and (max-width:1120px) {
   .skills {
     .column {

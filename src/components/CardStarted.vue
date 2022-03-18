@@ -179,6 +179,7 @@ $img: '../assets/table.jpg';
       }
     }
   }
+
 @media only screen and (max-width:864px) {
   .main-card {
     width: 100%;

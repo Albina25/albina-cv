@@ -65,6 +65,7 @@ export default {
     padding: 0.2rem 0.3rem;
     text-transform: capitalize;
   }
+
   .content {
     padding: 0 4rem;
   }

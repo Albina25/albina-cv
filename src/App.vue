@@ -115,6 +115,7 @@ html {
   animation-duration: 1s;
   animation-name: fadeInLeft
 }
+
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -130,6 +131,7 @@ html {
   animation-duration: 1s;
   animation-name: fadeOutLeft
 }
+
 @keyframes fadeOutLeft {
   100% {
     opacity: 0;
@@ -230,7 +232,6 @@ html {
   }
 }
 @media only screen and (min-width:825px) and (max-width:1120px) {
-
   #app {
     padding: 0;
     padding-top: 1rem;
@@ -253,6 +254,7 @@ html {
     }
   }
 }
+
 @media only screen and (max-width:824px) {
   #app {
     padding: 0;
@@ -312,7 +314,6 @@ html {
         .icon-img {
           padding: 8px;
           height: 45px;
-
         }
       }
     }

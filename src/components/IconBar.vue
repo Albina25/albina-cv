@@ -1,15 +1,15 @@
 <template>
     <div class="icon-bar">
-      <div :class="['icon-block', {'active': currentBlock === 'AboutMe' }]" @click="setCurrentBlock('AboutMe')">
+      <div :class="['icon-block', { 'active': currentBlock === 'AboutMe' }]" @click="setCurrentBlock('AboutMe')">
         <icon-man class="icon-img"></icon-man>обо мне
       </div>
-      <div :class="['icon-block', {'active': currentBlock === 'Skills' }]" @click="setCurrentBlock('Skills')">
+      <div :class="['icon-block', { 'active': currentBlock === 'Skills' }]" @click="setCurrentBlock('Skills')">
         <icon-skills class="icon-img"></icon-skills>навыки & знания
       </div>
-      <div :class="['icon-block', {'active': currentBlock === 'Win' }]" @click="setCurrentBlock('Win')">
+      <div :class="['icon-block', { 'active': currentBlock === 'Win' }]" @click="setCurrentBlock('Win')">
         <icon-win :class="['icon-img', {'active': currentBlock === 'Win' }]"></icon-win>чем отличилась
       </div>
-      <div :class="['icon-block', {'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
+      <div :class="['icon-block', { 'active': currentBlock === 'ExperienceEducation' }]" @click="setCurrentBlock('ExperienceEducation')">
         <icon-experience class="icon-img"></icon-experience>опыт & образование
       </div>
 <!--      <div class="icon-block"><i class="fas fa-at icon-img"></i>контакты</div>-->
@@ -38,7 +38,7 @@ export default {
     setCurrentBlock(value) {
       this.isVisible = true;
       this.currentBlock=value;
-      this.$emit('set-сurrent-block', {'currentBlock':value, 'isVisible':this.isVisible});
+      this.$emit('set-сurrent-block', { 'currentBlock':value, 'isVisible':this.isVisible });
       console.log(1, this.currentBlock)
     },
   },
@@ -86,6 +86,7 @@ export default {
       height: 100%;
     }
   }
+
   .active {
     fill: var(--green);
     color: var(--green);
