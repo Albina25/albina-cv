@@ -42,10 +42,10 @@
         <projects v-if=!mobileView v-show="currentBlock === 'Projects'" :class="{'animatedIn':isVisible}"></projects>
         <projects id="projects" v-if="mobileView"></projects>
 
-        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'hidden':currentBlock === 'AboutMe','animatedIn':isVisible}]"></win>
+        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'animatedIn':isVisible}]"></win>
         <win id="win" v-if="mobileView"></win>
 
-        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animatedOut':currentBlock === !'ExperienceEducation', 'animatedIn': isVisible}]"></experience-education>
+        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animatedIn': isVisible}]"></experience-education>
         <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
       </div>
     </div>
@@ -116,37 +116,37 @@ html {
   scroll-behavior: smooth;
 }
 
-//.animatedIn {
-//  animation-duration: 1s;
-//  animation-name: fadeInLeft
-//}
-//
-//@keyframes fadeInLeft {
-//  0% {
-//    opacity: 0;
-//    transform: translate3d(-70%, 0, 0)
-//  }
-//  100% {
-//    opacity: 50;
-//    transform: none
-//  }
-//}
-//
-//.animatedOut {
-//  animation-duration: 1s;
-//  animation-name: fadeOutLeft
-//}
-//
-//@keyframes fadeOutLeft {
-//  100% {
-//    opacity: 0;
-//    transform: translate3d(-70%, 0, 0)
-//  }
-//  0% {
-//    opacity: 50;
-//    transform: none
-//  }
-//}
+.animatedIn {
+  animation-duration: 1s;
+  animation-name: fadeInLeft
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-70%, 0, 0)
+  }
+  100% {
+    opacity: 50;
+    transform: none
+  }
+}
+
+.animatedOut {
+  animation-duration: 1s;
+  animation-name: fadeOutLeft
+}
+
+@keyframes fadeOutLeft {
+  100% {
+    opacity: 1;
+    transform: translate3d(-70%, 0, 0)
+  }
+  0% {
+    opacity: 1;
+    transform: none
+  }
+}
 
 #app {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
@@ -224,11 +224,11 @@ html {
     transition: all 2s linear;
   }
 
-  .activeBlock {
-    opacity: 1;
-    visibility: visible;
-    transition: all 2s linear;
-  }
+  //.activeBlock {
+  //  opacity: 1;
+  //  visibility: visible;
+  //  transition: all 2s linear;
+  //}
 
   .position-blocks {
     display: flex;
