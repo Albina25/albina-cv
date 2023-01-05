@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/albina-cv/precache-manifest.a00a3504602b101e02fb9f6d9d049cfd.js"
+  "/albina-cv/precache-manifest.b405b5beca688e8efb91c26fa047eb20.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "albina-cv"});

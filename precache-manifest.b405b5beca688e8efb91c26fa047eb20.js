@@ -1,15 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e8d14259de3ff1554429",
-    "url": "/albina-cv/css/app.cfb1cfc3.css"
+    "revision": "51f414e9c79a56233612",
+    "url": "/albina-cv/css/app.ce24bddb.css"
   },
   {
-    "revision": "a2ba0ef1978526679e69c8a1a0073a35",
+    "revision": "28ab29e4a95421a96ff6fea1797642f7",
     "url": "/albina-cv/cv/albina-cv.docx"
   },
   {
-    "revision": "3a27e275a94215ff70aae14f32fd75e8",
+    "revision": "3469320b922ff2a7acfc82a9cc382dc4",
     "url": "/albina-cv/cv/albina-cv.pdf"
+  },
+  {
+    "revision": "3a27e275a94215ff70aae14f32fd75e8",
+    "url": "/albina-cv/cv/albina-cv2.pdf"
   },
   {
     "revision": "ae9b0d9a5ed7007910b66f593f0b31bd",
@@ -52,6 +56,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/albina-cv/img/1.jpg"
   },
   {
+    "revision": "efa21e194448b2290d09cd83884f4074",
+    "url": "/albina-cv/img/img-projects/simon-the-game.png"
+  },
+  {
     "revision": "9c156b41aa1ba39c2532ac05b69392fd",
     "url": "/albina-cv/img/img-projects/tests.png"
   },
@@ -64,12 +72,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/albina-cv/img/table1.jpg"
   },
   {
-    "revision": "a6ad567b39b7c1ab7663b023eeb950b3",
+    "revision": "6aea0846e6d4f45dc7468b4ea84acf6c",
     "url": "/albina-cv/index.html"
   },
   {
-    "revision": "e8d14259de3ff1554429",
-    "url": "/albina-cv/js/app.6870a1e8.js"
+    "revision": "51f414e9c79a56233612",
+    "url": "/albina-cv/js/app.f8312212.js"
   },
   {
     "revision": "daeae94a48917fa23eb9",
