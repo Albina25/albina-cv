@@ -33,17 +33,17 @@
 
       <div class="position-blocks">
         <card-started></card-started>
-        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn':isVisible}"></about-me>
+        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn': currentBlock === 'AboutMe'}"></about-me>
         <about-me id="aboutMe" v-if="mobileView"></about-me>
 
-        <skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn':isVisible}"></skills>
-        <skills id="skills" v-if="mobileView"></skills>
+        <my-skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn': currentBlock === 'Skills'}"></my-skills>
+        <my-skills id="skills" v-if="mobileView"></my-skills>
 
-        <projects v-if=!mobileView v-show="currentBlock === 'Projects'" :class="{'animatedIn':isVisible}"></projects>
-        <projects id="projects" v-if="mobileView"></projects>
+        <my-projects v-if=!mobileView v-show="currentBlock === 'Projects'" :class="{'animatedIn': currentBlock === 'Projects'}"></my-projects>
+        <my-projects id="projects" v-if="mobileView"></my-projects>
 
-        <win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'animatedIn':isVisible}]"></win>
-        <win id="win" v-if="mobileView"></win>
+        <my-win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'animatedIn': currentBlock === 'Win'}]"></my-win>
+        <my-win id="win" v-if="mobileView"></my-win>
 
         <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animatedIn': isVisible}]"></experience-education>
         <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
@@ -56,9 +56,9 @@
 import CardStarted from './components/CardStarted.vue'
 import AboutMe from './components/AboutMe.vue'
 import ExperienceEducation from './components/ExperienceEducation.vue'
-import Skills from './components/Skills.vue'
-import Projects from './components/Projects.vue'
-import Win from './components/Win.vue'
+import MySkills from './components/MySkills.vue'
+import MyProjects from './components/MyProjects.vue'
+import MyWin from './components/MyWin.vue'
 import IconMan from "./components/icons/IconMan.vue";
 import IconWin from "./components/icons/IconWin.vue";
 import IconSkills from "./components/icons/IconSkills.vue";
@@ -71,9 +71,9 @@ export default {
     CardStarted,
     AboutMe,
     ExperienceEducation,
-    Skills,
-    Win,
-    Projects,
+    MySkills,
+    MyWin,
+    MyProjects,
     IconMan,
     IconWin,
     IconSkills,

@@ -16,7 +16,7 @@
         </div>
 
         <div class="column">
-          <div class="container-right">
+<!--          <div class="container-right">
             <div><icon-graphic class="icon-skills"></icon-graphic></div>
             <h3 class="title-skills">графика</h3>
             <ul>
@@ -24,13 +24,22 @@
                 {{ graphic }}
               </li>
             </ul>
-          </div>
+          </div>-->
           <div class="container-right">
             <div><icon-keyboard class="icon-skills"></icon-keyboard></div>
             <h3 class="title-skills">дополнительно</h3>
             <ul>
               <li class="skill" v-for="(moreSkill, index) of moreSkills" :key="`moreSkill-${index}`">
                 {{ moreSkill }}
+              </li>
+            </ul>
+          </div>
+          <div class="container-right">
+            <div><icon-graphic class="icon-skills"></icon-graphic></div>
+            <h3 class="title-skills">графика</h3>
+            <ul>
+              <li class="skill" v-for="(graphic, index) of graphics" :key="`graphic-${index}`">
+                {{ graphic }}
               </li>
             </ul>
           </div>
@@ -57,8 +66,8 @@ export default {
     return {
       title: 'навыки & знания',
       graphics: ['Adobe Photoshop', 'Adobe Premiere Pro'],
-      frontend: ['HTML5', 'CSS3', 'Java Script', 'Vue.js', 'Nuxt.js'],
-      moreSkills: ['GIT', 'English'],
+      frontend: ['HTML5', 'SCSS', 'Java Script (ES6)', 'Vue.js', 'Nuxt.js', 'Yii2 (базовые знания)'],
+      moreSkills: ['GitHub/GitLab', 'WebPack', 'PhpStorm', 'Работа по макетам Figma', 'Deploy на продакшн'],
     }
   }
 }
@@ -123,7 +132,7 @@ export default {
   .container-right {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 1rem;

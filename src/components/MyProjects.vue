@@ -3,12 +3,12 @@
     <div class="projects">
       <span class="title">Проекты</span>
       <div class="column">
-        <div class="container">
-          <h3 class="position">{{ projects.title }}</h3>
+        <div v-for="project in projects" class="container" :key="project.id">
+          <h3 class="position">{{ project.title }}</h3>
           <a :href="projects.url" target="_blank" class="position">
-            <img class="img-project" :src="projects.src" alt="project">
+            <img class="img-project" :src="project.src" alt="project">
           </a>
-          <span>{{ projects.discription }}</span>
+          <span>{{ project.discription }}</span>
         </div>
 
       </div>
@@ -22,12 +22,22 @@ export default {
   name: "IconJob",
   data() {
     return {
-      projects: {
-        title: 'Тесты',
-        url: 'https://github.com/albina25/tests',
-        src: 'img/img-projects/tests.png',
-        discription: 'Здесь пока размещу один небольшой проект',
-      },
+      projects: [
+        {
+          id: 1,
+          title: 'Remember me',
+          url: 'https://albina25.github.io/simon-the-game',
+          src: 'img/img-projects/simon-the-game.png',
+          discription: 'Увлекательная игра, которая развивает память, наблюдательность',
+        },
+        {
+          id: 2,
+          title: 'Тесты',
+          url: 'https://github.com/albina25/tests',
+          src: 'img/img-projects/tests.png',
+          //discription: 'Тестирование',
+        }
+      ],
     }
   }
 }
@@ -79,6 +89,7 @@ export default {
 
   .img-project {
     border: 2px solid var(--green);
+    height: 180px;
 
     &:hover {
       size: 105%;
