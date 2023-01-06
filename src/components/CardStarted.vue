@@ -57,7 +57,7 @@ export default {
 $img: '../assets/table.jpg';
 .main-card {
   position: relative;
-  min-width: 500px;
+  min-width: var(--main-card-size, 500px);
   background: #fff;
   box-shadow: -4px -10px 10px 12px rgb(0 0 0 / 10%);
   z-index: 15;

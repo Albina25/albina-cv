@@ -156,7 +156,8 @@ html {
     z-index: 20;
   }
   .icon-bar {
-    width: 90px;
+    width: var(--icon-bar-size, 90px);
+    //width: 90px;
     border-radius: 4px;
     background-color: #fff;
     margin-right: 1rem;
@@ -244,7 +245,6 @@ html {
 @media only screen and (max-width:824px) {
   #app {
     padding: 1rem 0 0;
-    //padding-top: 1rem;
     width: 100%;
     font-size: 14px;
 
@@ -315,7 +315,7 @@ html {
 
   .position-blocks {
     position: relative;
-    width: calc(100% - 90px);
+    width: calc(100% - var(--icon-bar-size, 90px));
   }
 
   .test {
