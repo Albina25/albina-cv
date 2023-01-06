@@ -3,28 +3,28 @@
     <div class="profile">
       <header class="header">
         <div class="icon-bar">
-          <div class="icon-block" @click="setCurrentBlock('AboutMe')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'AboutMe'}]" href="#aboutMe">
+          <div class="icon-block" @click="setCurrentBlock('aboutMe')">
+            <a :class="['icon-block-link', {'icon-block-link_active': currentBlock === 'aboutMe'}]">
               <icon-man class="icon-img"></icon-man>обо мне
             </a>
           </div>
-          <div class="icon-block" @click="setCurrentBlock('Skills')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'Skills'}]" href="#skills">
+          <div class="icon-block" @click="setCurrentBlock('skills')">
+            <a :class="['icon-block-link', {'icon-block-link_active': currentBlock === 'skills'}]">
               <icon-skills class="icon-img"></icon-skills>навыки & знания
             </a>
           </div>
-          <div class="icon-block" @click="setCurrentBlock('Projects')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'Projects'}]" href="#projects">
+          <div class="icon-block" @click="setCurrentBlock('projects')">
+            <a :class="['icon-block-link', {'icon-block-link_active': currentBlock === 'projects'}]">
               <icon-projects class="icon-img"></icon-projects>проекты
             </a>
           </div>
-          <div class="icon-block" @click="setCurrentBlock('Win')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'Win'}]" href="#win">
+          <div class="icon-block" @click="setCurrentBlock('win')">
+            <a :class="['icon-block-link', {'icon-block-link_active': currentBlock === 'win'}]">
               <icon-win class="icon-img"></icon-win>чем отличилась
             </a>
           </div>
-          <div class="icon-block" @click="setCurrentBlock('ExperienceEducation')">
-            <a :class="['icon-block-link', {'active': currentBlock === 'ExperienceEducation'}]" href="#experienceEducation">
+          <div class="icon-block" @click="setCurrentBlock('experienceEducation')">
+            <a :class="['icon-block-link', {'icon-block-link_active': currentBlock === 'experienceEducation'}]">
               <icon-experience class="icon-img"></icon-experience>опыт & образование
             </a>
           </div>
@@ -33,20 +33,12 @@
 
       <div class="position-blocks">
         <card-started></card-started>
-        <about-me v-if=!mobileView v-show="currentBlock === 'AboutMe'" :class="{'animatedIn': currentBlock === 'AboutMe'}"></about-me>
-        <about-me id="aboutMe" v-if="mobileView"></about-me>
 
-        <my-skills v-if=!mobileView v-show="currentBlock === 'Skills'" :class="{'animatedIn': currentBlock === 'Skills'}"></my-skills>
-        <my-skills id="skills" v-if="mobileView"></my-skills>
-
-        <my-projects v-if=!mobileView v-show="currentBlock === 'Projects'" :class="{'animatedIn': currentBlock === 'Projects'}"></my-projects>
-        <my-projects id="projects" v-if="mobileView"></my-projects>
-
-        <my-win v-if=!mobileView v-show="currentBlock === 'Win'" :class="[{'animatedIn': currentBlock === 'Win'}]"></my-win>
-        <my-win id="win" v-if="mobileView"></my-win>
-
-        <experience-education v-if=!mobileView v-show="currentBlock === 'ExperienceEducation'" :class="[{'animatedIn': isVisible}]"></experience-education>
-        <experience-education id="experienceEducation" v-if="mobileView"></experience-education>
+        <about-me id="aboutMe" class="test"></about-me>
+        <my-skills id="skills" class="test"> </my-skills>
+        <my-projects id="projects" class="test"></my-projects>
+        <my-win id="win" class="test"></my-win>
+        <experience-education id="experienceEducation" class="test"></experience-education>
       </div>
     </div>
   </div>
@@ -82,70 +74,66 @@ export default {
   },
   data() {
     return {
-      currentBlock: 'AboutMe',
-      isVisible: false,
+      currentBlock: 'aboutMe',
       mobileView: false,
     }
   },
+
   created() {
     this.handleView();
     window.addEventListener('resize', this.handleView);
   },
+
+  mounted() {
+    this.openBlock(this.currentBlock);
+  },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleView);
   },
+
   methods: {
     setCurrentBlock(value) {
       this.currentBlock = value;
-      this.isVisible = true;
+      if(!this.mobileView) {
+        this.openBlock(value);
+      } else {
+        window.location.hash = value;
+      }
     },
+
+    openBlock(value) {
+      const elem = document.getElementById(value);
+      const currentElem = document.querySelector('.animatedIn');
+      if (currentElem) {
+        currentElem.classList.toggle('animatedIn');
+      }
+      elem.classList.add('animatedIn');
+    },
+
     handleView() {
       if(window.innerWidth <= 1120) {
         this.mobileView = true;
-        this.isVisible = false;
       } else {
         this.mobileView = false;
       }
     },
-  }
+  },
+  watch: {
+    mobileView() {
+      if (this.mobileView) {
+        this.currentBlock = '';
+      } else {
+        this.currentBlock ? this.openBlock(this.currentBlock) : this.openBlock('aboutMe');
+      }
+    }
+  },
 }
 </script>
 
 <style lang="scss">
 html {
   scroll-behavior: smooth;
-}
-
-.animatedIn {
-  animation-duration: 1s;
-  animation-name: fadeInLeft
-}
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translate3d(-70%, 0, 0)
-  }
-  100% {
-    opacity: 50;
-    transform: none
-  }
-}
-
-.animatedOut {
-  animation-duration: 1s;
-  animation-name: fadeOutLeft
-}
-
-@keyframes fadeOutLeft {
-  100% {
-    opacity: 1;
-    transform: translate3d(-70%, 0, 0)
-  }
-  0% {
-    opacity: 1;
-    transform: none
-  }
 }
 
 #app {
@@ -193,6 +181,11 @@ html {
           fill: var(--green);
           color: var(--green);
         }
+
+        &_active {
+          fill: var(--green);
+          color: var(--green);
+        }
       }
 
      &:nth-last-child(n+2):before {
@@ -211,11 +204,6 @@ html {
         height: 68px;
       }
     }
-
-    .active {
-      fill: var(--green);
-      color: var(--green);
-    }
   }
 
   .hidden {
@@ -223,12 +211,6 @@ html {
     visibility: hidden;
     transition: all 2s linear;
   }
-
-  //.activeBlock {
-  //  opacity: 1;
-  //  visibility: visible;
-  //  transition: all 2s linear;
-  //}
 
   .position-blocks {
     display: flex;
@@ -238,8 +220,8 @@ html {
 }
 @media only screen and (min-width:825px) and (max-width:1120px) {
   #app {
-    padding: 0;
-    padding-top: 1rem;
+    padding: 1rem 0 0;
+    //padding-top: 1rem;
 
     .profile {
       width: 810px;
@@ -262,8 +244,8 @@ html {
 
 @media only screen and (max-width:824px) {
   #app {
-    padding: 0;
-    padding-top: 1rem;
+    padding: 1rem 0 0;
+    //padding-top: 1rem;
     width: 100%;
     font-size: 14px;
 
@@ -323,6 +305,30 @@ html {
         }
       }
     }
+  }
+}
+
+@media (min-width:1120px) {
+  #app .profile {
+    justify-content: flex-start;
+    width: 90%;
+  }
+
+  .position-blocks {
+    position: relative;
+  }
+
+  .test {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    transition: left 1s;
+  }
+
+  .animatedIn {
+    z-index: 10;
+    animation-duration: 1s;
+    left: 500px;
   }
 }
 </style>

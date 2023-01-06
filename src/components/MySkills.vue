@@ -107,7 +107,7 @@ export default {
     width: 50%;
     align-items: center;
     justify-content: center;
-    padding: 0 5rem;
+    //padding: 0 5rem;
   }
 
   .title-skills {
@@ -154,7 +154,7 @@ export default {
 @media only screen and (max-width:1120px) {
   .skills {
     .column {
-      padding: 0 4rem;
+      //padding: 0 4rem;
     }
   }
 }
