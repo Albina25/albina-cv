@@ -221,7 +221,6 @@ html {
 @media only screen and (min-width:825px) and (max-width:1120px) {
   #app {
     padding: 1rem 0 0;
-    //padding-top: 1rem;
 
     .profile {
       width: 810px;
@@ -316,6 +315,7 @@ html {
 
   .position-blocks {
     position: relative;
+    width: calc(100% - 90px);
   }
 
   .test {
