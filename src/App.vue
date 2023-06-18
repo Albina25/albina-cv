@@ -137,7 +137,6 @@ html {
 }
 
 #app {
-  font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 16px;
   align-items: center;
