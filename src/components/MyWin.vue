@@ -59,7 +59,7 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 2rem 2rem;
+    padding: 2rem;
     justify-content: space-between;
     background-color: #fff;
 

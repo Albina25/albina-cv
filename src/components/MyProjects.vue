@@ -6,6 +6,7 @@
         <div v-for="project in projects" class="container" :key="project.id">
           <div class="projects_item">
             <a :href="project.url" target="_blank" class="projects_item-link">
+              <i></i>
               <h3>{{ project.title }}</h3>
               <span class="projects_item-text">{{ project.discription }}</span>
             </a>
@@ -69,7 +70,7 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 12rem;
+    padding: 2rem 10rem;
     justify-content: center;
     align-items: center;
 
@@ -121,6 +122,12 @@ export default {
     gap: 0.5rem;
     padding: 1rem;
     border: 1px solid var(--green);
+  }
+}
+
+@media only screen and (max-width:1400px) {
+  .projects .container {
+    padding: 2rem;
   }
 }
 </style>
